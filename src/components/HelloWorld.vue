@@ -7,17 +7,17 @@
       <v-flex v-for="c in characters" pa-3 xs4 sm2 md2>
         <h2>{{ c.name }}</h2>
         <!-- <h2>{{ c.imageUrl }}</h2> -->
-        <!-- <video
-          :src="'../assets/webm/' + c.imageUrl"
+        <video
+          :src="'/assets/img/' + c.imageUrl"
           width="249"
           height="357"
           autoplay
           loop
           type="video/webm"
-        /> -->
+        />
       </v-flex>
       <video
-        src="../assets/webm/assire-01.webm"
+        src="../assets/img/letho-01.webm"
         width="249"
         height="357"
         autoplay
