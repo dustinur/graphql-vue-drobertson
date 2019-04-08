@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <v-layout row wrap>
-      <v-flex xs10 offset-xs5>
+    <v-layout row wrap align-center justify-center fill-height>
+      <v-flex xs12>
         <h2 class="pb-3">Characters</h2>
       </v-flex>
-      <v-flex v-for="c in characters" pa-3 xs4 sm2 md2>
+      <v-flex v-for="c in characters" xs12 sm6 md4 lg3 xl2>
         <h2>{{ c.name }}</h2>
         <video
           :src="`${publicPath}img/${c.imageUrl}`"
@@ -49,7 +49,7 @@ export default {
 
 <style>
 .v-content__wrap {
-  background: #333;
+  background: #111;
   color: #cecbcb;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-toolbar app dark>
+    <v-toolbar app light>
       <v-toolbar-side-icon>
-        <v-img :src="require('../src/assets/witcher-logo-w.png')"></v-img>
+        <v-img :src="require('../src/assets/witcher-logo-b.png')"></v-img>
       </v-toolbar-side-icon>
 
       <v-toolbar-title class="headline text-uppercase">
