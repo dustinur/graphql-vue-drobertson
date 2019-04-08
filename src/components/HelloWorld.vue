@@ -6,24 +6,14 @@
       </v-flex>
       <v-flex v-for="c in characters" pa-3 xs4 sm2 md2>
         <h2>{{ c.name }}</h2>
-        <!-- <h2>{{ c.imageUrl }}</h2> -->
         <video
-          :src="'/assets/img/' + c.imageUrl"
+          :src="`${publicPath}img/${c.imageUrl}`"
           width="249"
           height="357"
-          autoplay
           loop
           type="video/webm"
         />
       </v-flex>
-      <video
-        src="../assets/img/letho-01.webm"
-        width="249"
-        height="357"
-        autoplay
-        loop
-        type="video/webm"
-      />
     </v-layout>
   </v-container>
 </template>
@@ -35,7 +25,7 @@ import gql from "graphql-tag";
 export default {
   data() {
     return {
-      info: ""
+      publicPath: process.env.BASE_URL
     };
   },
   mounted() {
@@ -44,7 +34,6 @@ export default {
     //   .then(response => (this.info = response));
   },
   apollo: {
-    // Simple query that will update the 'characters' vue property
     characters: gql`
       query {
         characters {
