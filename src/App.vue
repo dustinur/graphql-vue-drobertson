@@ -18,18 +18,18 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <WitcherList/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import WitcherList from "./components/WitcherList";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    WitcherList
   },
   data() {
     return {
