@@ -1,20 +1,21 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="300px" style="margin: auto;">
+      <v-card width="300px" class="ma-auto">
         <video
           id="videoCard"
           :src="`${publicPath}img/${character.imageUrl}`"
           width="300"
           loop
           type="video/webm"
+          @click="play()"
           @mouseover="play()"
           @mouseleave="pause()"
         />
         <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">{{character.name}}</h3>
-            <div class="charBio">{{ character.description }}</div>
+          <h3 class="headline mb-0">{{character.name}}</h3>
+          <div v-if="playing">
+            <p class="charBio">{{ character.description }}</p>
           </div>
         </v-card-title>
 
@@ -39,21 +40,25 @@ export default {
   data() {
     return {
       publicPath: process.env.BASE_URL,
-      characters: [],
-      myVideo: document.getElementById("videoCard")
+      playing: false,
+      characters: []
     };
   },
   methods: {
     play() {
       event.target.play();
+      this.playing = true;
     },
     pause() {
       event.target.pause();
+      this.playing = false;
     }
   }
 };
 </script>
 
 <style scoped>
-    .hidden { display: none; }
+.hidden {
+  display: none;
+}
 </style>
