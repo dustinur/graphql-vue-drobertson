@@ -1,10 +1,10 @@
 // Play on hover
 
 <template>
-  <v-container grid-list-sm fluid>
+  <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex v-for="character in characters" :key="character.id">
-        <CharacterCard :character="character"/>
+        <CharCard :character="character"/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -13,11 +13,11 @@
 <script>
 // import axios from "axios";
 import gql from "graphql-tag";
-import CharacterCard from "./CharacterCard.vue";
+import CharCard from "./CharCard.vue";
 
 export default {
   components: {
-    CharacterCard
+    CharCard
   },
   data() {
     return {
@@ -36,6 +36,7 @@ export default {
           id
           name
           imageUrl
+          poster
           description
         }
       }

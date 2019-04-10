@@ -1,13 +1,15 @@
 <template>
   <v-app dark>
-    <v-toolbar app light>
+    <v-toolbar app dark>
       <v-toolbar-side-icon>
-        <v-img :src="require('../src/assets/witcher-logo-b.png')"></v-img>
+        <v-img :src="require('../src/assets/witcher-logo-b2.png')"></v-img>
       </v-toolbar-side-icon>
 
       <v-toolbar-title class="headline text-uppercase">
-        <span>The Witcher</span>
-        <span class="font-weight-light">Charcter Database</span>
+        <span>The </span>
+        <span class="text-red">W</span>
+        <span>itcher</span>
+        <span class="font-weight-light">Character Database</span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -40,4 +42,5 @@ export default {
 </script>
 
 <style>
+.text-red { color: #d70926 }
 </style>
