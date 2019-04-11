@@ -1,8 +1,8 @@
 <template>
-  <v-app dark>
-    <!-- <v-toolbar app dark>
+  <div>
+    <v-toolbar app dark>
       <v-toolbar-side-icon>
-        <v-img :src="require('../src/assets/witcher-logo-b2.png')"></v-img>
+        <v-img :src="require('@/assets/witcher-logo-b2.png')"></v-img>
       </v-toolbar-side-icon>
 
       <v-toolbar-title class="headline text-uppercase">
@@ -14,38 +14,20 @@
 
       <v-spacer></v-spacer>
 
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat to="/">Character List</v-btn>
+        <v-btn flat to="/create">Create Character</v-btn>
+      </v-toolbar-items>
+
       <v-btn flat href="https://github.com/dustinur/graphql-vue-drobertson" target="_blank">
         <span class="mr-2">DR</span>
       </v-btn>
-    </v-toolbar> -->
-    <AppHeader />
-
-    <v-content>
-      <!-- <CreateChar/>
-      <WitcherList/> -->
-      <router-view></router-view>
-    </v-content>
-  </v-app>
+    </v-toolbar>
+  </div>
 </template>
 
 <script>
-import AppHeader from "./components/AppHeader";
-
 export default {
-  name: "App",
-  components: {
-    AppHeader
-  },
-  data() {
-    return {
-      //
-    };
-  }
+  name: "AppHeader"
 };
 </script>
-
-<style>
-.text-red {
-  color: #d70926;
-}
-</style>
