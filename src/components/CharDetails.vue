@@ -15,14 +15,11 @@
           <v-flex>
             <h3 class="text-red">{{ character.charClass }}</h3>
             <h2 class="headline mb-0">{{ character.name }}</h2>
-            <!-- <v-spacer></v-spacer> -->
             <p class="charBio pt-2">{{ character.description }}</p>
           </v-flex>
         </v-card-title>
 
         <v-card-actions class="pb-4">
-          <!-- <v-spacer></v-spacer> -->
-          <!-- <v-btn color="primary" flat @click="esc">Close</v-btn> -->
           <v-img :src="require('@/assets/witcher-logo-w2.png')" height="100" aspect-ratio="1"/>
         </v-card-actions>
       </v-card>

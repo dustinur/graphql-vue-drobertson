@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="320px" class="ma-auto" color="#222">
+      <v-card width="340px" class="ma-auto" color="#222">
         <v-img
           :src="character.poster"
           aspect-ratio=".4"
@@ -23,9 +23,9 @@
         </v-card-title>
         <v-card-actions>
           <div class="text-xs-center">
-            <v-dialog v-model="dialog" width="332">
+            <v-dialog width="332">
               <template v-slot:activator="{ on }">
-                <v-btn flat block color="#d70926" v-on="on">View</v-btn>
+                <v-btn flat color="#d70926" v-on="on">View</v-btn>
               </template>
 
               <charDetails :character="character"/>

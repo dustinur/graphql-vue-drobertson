@@ -6,7 +6,7 @@
       </v-toolbar-side-icon>
 
       <v-toolbar-title class="headline text-uppercase">
-        <span>The </span>
+        <span>The</span>
         <span class="text-red">W</span>
         <span>itcher</span>
         <span class="font-weight-light">Character Database</span>
@@ -20,6 +20,7 @@
     </v-toolbar>
 
     <v-content>
+      <CreateChar/>
       <WitcherList/>
     </v-content>
   </v-app>
@@ -27,10 +28,12 @@
 
 <script>
 import WitcherList from "./components/WitcherList";
+import CreateChar from "./components/CreateChar";
 
 export default {
   name: "App",
   components: {
+    CreateChar,
     WitcherList
   },
   data() {
@@ -42,5 +45,7 @@ export default {
 </script>
 
 <style>
-.text-red { color: #d70926 }
+.text-red {
+  color: #d70926;
+}
 </style>

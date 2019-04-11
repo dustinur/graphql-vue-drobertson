@@ -12,8 +12,9 @@
 
 <script>
 // import axios from "axios";
-import gql from "graphql-tag";
+import { ALL_CHARACTERS_QUERY } from "../constants/graphql";
 import CharCard from "./CharCard.vue";
+
 
 export default {
   components: {
@@ -30,18 +31,9 @@ export default {
     //   .then(response => (this.info = response));
   },
   apollo: {
-    characters: gql`
-      query {
-        characters {
-          id
-          name
-          charClass
-          imageUrl
-          poster
-          description
-        }
-      }
-    `
+    characters: {
+      query: ALL_CHARACTERS_QUERY
+    }
   }
 };
 </script>
