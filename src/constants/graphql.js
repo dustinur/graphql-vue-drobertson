@@ -15,12 +15,26 @@ export const ALL_CHARACTERS_QUERY = gql`
 
 export const CREATE_CHARACTER_MUTATION = gql`
   # 2
-  mutation CreateCharacterMutation($name: String!) {
+  mutation CreateCharacterMutation(
+    $name: String!,
+    $charClass: String,
+    $imageUrl: String,
+    $poster: String,
+    $description: String
+    ) {
     createCharacter(data: {
-        name: $name
+        name: $name,
+        charClass: $charClass,
+        imageUrl: $imageUrl,
+        poster: $poster,
+        description: $description
         }) {
       id
       name
+      charClass
+      imageUrl
+      poster
+      description
     }
   }
 `

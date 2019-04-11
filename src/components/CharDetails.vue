@@ -4,7 +4,8 @@
       <v-card width="325px" color="#222" class="ma-auto">
         <video
           id="videoCard"
-          :src="`${publicPath}img/${character.imageUrl}`"
+          :src="`${publicPath}img/${character.imageUrl}` || character.imageUrl"
+          :poster="character.poster"
           width="325"
           muted
           autoplay
@@ -13,9 +14,9 @@
         />
         <v-card-title primary-title>
           <v-flex>
-            <h3 class="text-red">{{ character.charClass }}</h3>
+            <h3 class="subheading text-red">{{ character.charClass }}</h3>
             <h2 class="headline mb-0">{{ character.name }}</h2>
-            <p class="charBio pt-2">{{ character.description }}</p>
+            <blockquote class="blockquote body-1 pt-2 pl-1">{{ character.description }}</blockquote>
           </v-flex>
         </v-card-title>
 

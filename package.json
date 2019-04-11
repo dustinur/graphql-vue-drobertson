@@ -18,6 +18,7 @@
     "vue": "^2.6.6",
     "vue-apollo": "^3.0.0-beta.28",
     "vue-router": "^3.0.3",
+    "vuelidate": "^0.7.4",
     "vuetify": "^1.5.5"
   },
   "devDependencies": {

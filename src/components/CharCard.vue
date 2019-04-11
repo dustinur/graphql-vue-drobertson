@@ -17,7 +17,7 @@
 
         <v-card-title primary-title>
           <v-flex>
-            <h3 class="text-red">{{ character.charClass }}</h3>
+            <h3 class="text-red subheading">{{ character.charClass }}</h3>
             <h2 class="headline mb-0">{{ character.name }}</h2>
           </v-flex>
         </v-card-title>
