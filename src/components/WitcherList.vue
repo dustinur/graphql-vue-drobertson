@@ -35,6 +35,7 @@ export default {
         characters {
           id
           name
+          charClass
           imageUrl
           poster
           description

@@ -1,42 +1,38 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-hover>
-        <v-card width="300px" class="ma-auto">
-          <video
-            id="videoCard"
-            :src="`${publicPath}img/${character.imageUrl}`"
-            width="300"
-            :poster="character.poster"
-            loop
-            type="video/webm"
-            @mouseover="play()"
-            @mouseleave="pause()"
-            @click="play()"
-          />
-          <v-card-title primary-title>
-            <h3 class="headline mb-0">{{ character.name }}</h3>
-            <div v-if="playing">
-              <p class="charBio">{{ character.description }}</p>
-            </div>
-          </v-card-title>
+      <v-card width="320px" class="ma-auto" color="#222">
+        <v-img
+          :src="character.poster"
+          aspect-ratio=".4"
+          position="center top"
+          class="black lighten-2"
+        >
+          <template v-slot:placeholder>
+            <v-layout fill-height align-center justify-center ma-0>
+              <v-progress-circular indeterminate color="grey darken-5"></v-progress-circular>
+            </v-layout>
+          </template>
+        </v-img>
 
-          <v-card-actions>
-            <!-- <v-btn flat color="red">Share</v-btn>
-            <v-btn flat color="orange">Explore</v-btn> -->
+        <v-card-title primary-title>
+          <v-flex>
+            <h3 class="text-red">{{ character.charClass }}</h3>
+            <h2 class="headline mb-0">{{ character.name }}</h2>
+          </v-flex>
+        </v-card-title>
+        <v-card-actions>
+          <div class="text-xs-center">
+            <v-dialog v-model="dialog" width="332">
+              <template v-slot:activator="{ on }">
+                <v-btn flat block color="#d70926" v-on="on">View</v-btn>
+              </template>
 
-            <div class="text-xs-center">
-              <v-dialog v-model="dialog" width="500">
-                <template v-slot:activator="{ on }">
-                  <v-btn flat color="red" dark v-on="on">View Bio</v-btn>
-                </template>
-
-                <charDetails :character="character"/>
-              </v-dialog>
-            </div>
-          </v-card-actions>
-        </v-card>
-      </v-hover>
+              <charDetails :character="character"/>
+            </v-dialog>
+          </div>
+        </v-card-actions>
+      </v-card>
     </v-flex>
   </v-layout>
 </template>
@@ -44,7 +40,6 @@
 
 <script>
 import CharDetails from "./CharDetails.vue";
-
 
 export default {
   components: {
@@ -77,8 +72,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .hidden {
   display: none;
 }
+
 </style>
