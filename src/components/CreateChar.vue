@@ -54,7 +54,10 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
-import { CREATE_CHARACTER_MUTATION } from "../constants/graphql";
+import {
+  ALL_CHARACTERS_QUERY,
+  CREATE_CHARACTER_MUTATION
+} from "../constants/graphql";
 
 export default {
   name: "CreateChar",
@@ -86,16 +89,30 @@ export default {
   methods: {
     createCharacter() {
       const { name, charClass, imageUrl, poster, description } = this.$data;
-      this.$apollo.mutate({
-        mutation: CREATE_CHARACTER_MUTATION,
-        variables: {
-          name,
-          charClass,
-          imageUrl,
-          poster,
-          description
-        }
-      });
+      this.$apollo
+        .mutate({
+          mutation: CREATE_CHARACTER_MUTATION,
+          variables: {
+            name,
+            charClass,
+            imageUrl,
+            poster,
+            description
+          },
+          update: (store, { data: { createCharacter } }) => {
+            const data = store.readQuery({
+              query: ALL_CHARACTERS_QUERY
+            });
+            data.allCharacters.push(createCharacter);
+            store.writeQuery({ query: ALL_CHARACTERS_QUERY, data });
+          }
+        })
+        .then(data => {
+          this.$router.push({ path: "/" }).go({ path: "/" });
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
     clear() {
       this.$v.$reset();
