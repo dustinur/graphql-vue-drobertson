@@ -21,7 +21,13 @@
             <h2 class="headline mb-0">{{ character.name }}</h2>
           </v-flex>
         </v-card-title>
+
         <v-card-actions>
+          
+          <router-link :to="{ name: 'DetailsTwo', params: { id: character.id } }">
+            <v-btn flat color="#d70926">Router Link | DetailsTwo</v-btn>
+          </router-link>
+
           <div class="text-xs-center">
             <v-dialog width="332">
               <template v-slot:activator="{ on }">
@@ -76,5 +82,4 @@ export default {
 .hidden {
   display: none;
 }
-
 </style>

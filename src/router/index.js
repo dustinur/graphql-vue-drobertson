@@ -1,21 +1,35 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-import CreateChar from '../components/CreateChar'
-import WitcherList from '../components/WitcherList'
+import WitcherList from "../components/WitcherList";
+import CreateChar from "../components/CreateChar";
+import CharDetails from "../components/CharDetails";
+import CharDetailsTwo from "../components/CharDetailsTwo";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: "/",
+      name: "Home",
       component: WitcherList
     },
     {
-      path: '/create',
+      path: "/create",
+      name: "Create",
       component: CreateChar
+    },
+    {
+      path: "/details/:id",
+      name: "Details",
+      component: CharDetails
+    },
+    {
+      path: "/detailsTwo/:id",
+      name: "DetailsTwo",
+      component: CharDetailsTwo
     }
   ],
-  mode: 'history'
-})
+  mode: "history"
+});

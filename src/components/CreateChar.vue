@@ -103,12 +103,12 @@ export default {
             const data = store.readQuery({
               query: ALL_CHARACTERS_QUERY
             });
-            data.allCharacters.push(createCharacter);
+            data.characters.push(createCharacter);
             store.writeQuery({ query: ALL_CHARACTERS_QUERY, data });
           }
         })
         .then(data => {
-          this.$router.push({ path: "/" }).go({ path: "/" });
+          this.$router.push({ path: "/" });
         })
         .catch(error => {
           console.error(error);

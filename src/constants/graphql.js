@@ -12,6 +12,23 @@ export const ALL_CHARACTERS_QUERY = gql`
     }
   }
 `
+export const CHARACTER_QUERY = gql`
+  query CharacterQuery(
+    $id: ID!
+    ) {
+    character( where:{ 
+      id: $id
+      }) {
+      id
+      name
+      charClass
+      imageUrl
+      poster
+      description
+    }
+  }
+`
+
 
 export const CREATE_CHARACTER_MUTATION = gql`
   # 2
@@ -29,6 +46,38 @@ export const CREATE_CHARACTER_MUTATION = gql`
         poster: $poster,
         description: $description
         }) {
+      id
+      name
+      charClass
+      imageUrl
+      poster
+      description
+    }
+  }
+`
+
+export const UPDATE_CHARACTER_MUTATION = gql`
+  # 3
+  mutation UpdateCharacterMutation(
+    $id: ID!,
+    $name: String!,
+    $charClass: String,
+    $imageUrl: String,
+    $poster: String,
+    $description: String
+    ) {
+    createCharacter(
+      data: {
+        name: $name,
+        charClass: $charClass,
+        imageUrl: $imageUrl,
+        poster: $poster,
+        description: $description
+        }
+        where: {
+          id: $id
+        }
+        ) {
       id
       name
       charClass

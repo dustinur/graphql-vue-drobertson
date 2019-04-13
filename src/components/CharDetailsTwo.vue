@@ -30,19 +30,27 @@
 
 
 <script>
+import { CHARACTER_QUERY } from "../constants/graphql";
+
+
 export default {
-  props: {
-    character: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
-      publicPath: process.env.BASE_URL
-    };
+      publicPath: process.env.BASE_URL,
+      character: {}     
+    }
   },
-  methods: {}
+  apollo: {
+      character: {
+        query: CHARACTER_QUERY ,
+        loadingKey: 'loading',
+        variables() {
+            return {
+              id: this.$route.params.id,
+            }
+        }
+      },
+    },
 };
 </script>
 
