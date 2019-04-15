@@ -1,10 +1,10 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="240px" class="ma-auto" color="#222">
+      <v-card width="300px" class="ma-auto" color="#222">
         <v-img
           :src="character.poster"
-          aspect-ratio=".8"
+          aspect-ratio=".7"
           position="center top"
           class="black lighten-2"
         >
@@ -22,17 +22,16 @@
           </v-flex>
         </v-card-title>
 
-        <v-card-actions>
-
-          <div class="text-xs-center">
-            <v-dialog width="332">
-              <template v-slot:activator="{ on }">
-                <v-btn flat color="#d70926" v-on="on">View</v-btn>
-              </template>
-
-              <charDetails :character="character"/>
-            </v-dialog>
-          </div>
+        <v-card-actions class="justify-space-between">
+            <div class="text-xs-center">
+              <v-dialog width="332">
+                <template v-slot:activator="{ on }">
+                  <v-btn flat color="#d70926" v-on="on">View</v-btn>
+                </template>
+                <charDetails :character="character"/>
+              </v-dialog>
+            </div>
+            <v-btn flat color="#d70926" @click="deleteCharacter()">Delete</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -42,6 +41,10 @@
 
 <script>
 import CharDetails from "./CharDetails.vue";
+import {
+  ALL_CHARACTERS_QUERY,
+  DELETE_CHARACTER_MUTATION
+} from "../constants/graphql";
 
 export default {
   components: {
@@ -56,26 +59,46 @@ export default {
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL,
-      playing: false,
-      characters: []
+      publicPath: process.env.BASE_URL
     };
   },
   methods: {
-    play() {
-      event.target.play();
-      this.playing = true;
-    },
-    pause() {
-      event.target.pause();
-      this.playing = false;
+    deleteCharacter() {
+      const { id } = this.$data;
+      // Mutation
+      this.$apollo
+        .mutate({
+          mutation: DELETE_CHARACTER_MUTATION,
+          variables: {
+            id: this.character.id
+          },
+          refetchQueries: [
+            {
+              query: ALL_CHARACTERS_QUERY,
+              variables: {
+                characters: []
+              }
+            }
+          ],
+          optimisticResponse: {
+            __typename: "Mutation",
+            deleteCharacter: {
+              __typename: "Character", // graphQL type of the card
+              id: this.character.id
+            }
+          }
+        })
+        .then(data => {
+          console.log(data);
+          this.$router.push({ path: "/" });
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 };
 </script>
 
 <style>
-.hidden {
-  display: none;
-}
 </style>

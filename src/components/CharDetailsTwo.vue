@@ -14,11 +14,9 @@
         />
         <v-card-title primary-title>
           <v-flex>
-            <h3>{{ character.id }}</h3>
             <h3 class="subheading text-red">{{ character.charClass }}</h3>
             <h2 class="headline mb-0">{{ character.name }}</h2>
             <blockquote class="blockquote body-1 pt-2 pl-1">{{ character.description }}</blockquote>
-            <v-btn color="#d70926" @click="deleteCharacter()">Delete</v-btn>
           </v-flex>
         </v-card-title>
 
@@ -35,8 +33,7 @@
 
 <script>
 import {
-  CHARACTER_QUERY,
-  DELETE_CHARACTER_MUTATION
+  CHARACTER_QUERY
 } from "../constants/graphql";
 
 export default {
@@ -58,25 +55,7 @@ export default {
     }
   },
   methods: {
-    deleteCharacter() {
-      // Mutation
-      this.$apollo
-        .mutate({
-          mutation: DELETE_CHARACTER_MUTATION,
-          variables: {
-            id: this.$route.params.id
-          }
-        })
-        .then(data => {
-          // Result
-          console.log(data);
-          this.$router.push({ path: "/" });
-          this.$router.go({ name: "Home" });
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
+
   }
 };
 </script>
