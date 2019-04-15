@@ -71,6 +71,7 @@ export default {
           // Result
           console.log(data);
           this.$router.push({ path: "/" });
+          this.$router.go({ name: "Home" });
         })
         .catch(error => {
           console.error(error);
