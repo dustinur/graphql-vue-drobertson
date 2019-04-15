@@ -21,6 +21,11 @@
         </v-card-title>
 
         <v-card-actions class="pb-4">
+          <v-btn
+            flat
+            color="#d70926"
+            :to="{ name: 'DetailsTwo', params: { id: character.id } }"
+          >Edit</v-btn>
           <v-img :src="require('@/assets/witcher-logo-w2.png')" height="100" aspect-ratio="1"/>
         </v-card-actions>
       </v-card>

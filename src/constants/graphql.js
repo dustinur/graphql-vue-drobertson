@@ -87,3 +87,13 @@ export const UPDATE_CHARACTER_MUTATION = gql`
     }
   }
 `
+
+export const DELETE_CHARACTER_MUTATION = gql`
+  mutation deleteCharacterMutation($id: ID!) {
+    deleteCharacter( where: { 
+      id: $id
+    }) {
+      id
+    }
+  }
+`

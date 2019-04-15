@@ -1,10 +1,10 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="340px" class="ma-auto" color="#222">
+      <v-card width="240px" class="ma-auto" color="#222">
         <v-img
           :src="character.poster"
-          aspect-ratio=".4"
+          aspect-ratio=".8"
           position="center top"
           class="black lighten-2"
         >
@@ -23,10 +23,6 @@
         </v-card-title>
 
         <v-card-actions>
-          
-          <router-link :to="{ name: 'DetailsTwo', params: { id: character.id } }">
-            <v-btn flat color="#d70926">Router Link | DetailsTwo</v-btn>
-          </router-link>
 
           <div class="text-xs-center">
             <v-dialog width="332">
