@@ -27,8 +27,7 @@ export default new Router({
         character: {
           type: Object,
           required: true,
-        },
-        ...route.params
+        }
       })
     }
   ],
