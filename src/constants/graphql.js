@@ -61,29 +61,16 @@ export const UPDATE_CHARACTER_MUTATION = gql`
   mutation UpdateCharacterMutation(
     $id: ID!,
     $name: String!,
-    $charClass: String,
-    $imageUrl: String,
-    $poster: String,
-    $description: String
     ) {
-    createCharacter(
+    updateCharacter(
       data: {
         name: $name,
-        charClass: $charClass,
-        imageUrl: $imageUrl,
-        poster: $poster,
-        description: $description
         }
         where: {
           id: $id
         }
         ) {
-      id
       name
-      charClass
-      imageUrl
-      poster
-      description
     }
   }
 `

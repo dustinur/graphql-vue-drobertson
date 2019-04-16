@@ -24,8 +24,14 @@
           <v-btn
             flat
             color="#d70926"
-            :to="{ name: 'DetailsTwo', params: { id: character.id } }"
-          >Edit</v-btn>
+            :to="{ 
+              name: 'Update', 
+              params: { 
+                id: character.id, 
+                name: character.name 
+              }, 
+              props: true }"
+          >Edit Character</v-btn>
           <v-img :src="require('@/assets/witcher-logo-w2.png')" height="100" aspect-ratio="1"/>
         </v-card-actions>
       </v-card>
@@ -39,7 +45,7 @@ export default {
   props: {
     character: {
       type: Object,
-      required: true
+      required: true,
     }
   },
   data() {
