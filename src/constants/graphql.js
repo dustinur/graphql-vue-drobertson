@@ -75,6 +75,16 @@ export const UPDATE_CHARACTER_MUTATION = gql`
   }
 `
 
+export const UPDATE_CHARACTER_TWO = gql`
+mutation UpdateCharacter($id: ID!, $character: CharacterUpdateInput!) {
+    updateCharacter(data: $character, where: { id: $id } ) {
+        id
+        name
+        charClass
+    }
+  }
+`
+
 export const DELETE_CHARACTER_MUTATION = gql`
   mutation deleteCharacterMutation($id: ID!) {
     deleteCharacter( where: { 
