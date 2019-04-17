@@ -22,7 +22,7 @@
       </v-toolbar-items>
 
       <v-btn flat href="https://github.com/dustinur/graphql-vue-drobertson" target="_blank">
-        <span class="mr-2">DR</span>
+        <span class="mr-2">github</span>
       </v-btn>
     </v-toolbar>
   </div>
