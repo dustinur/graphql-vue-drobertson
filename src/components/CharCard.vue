@@ -64,8 +64,6 @@ export default {
   },
   methods: {
     deleteCharacter() {
-      const { id } = this.$data;
-      // Mutation
       this.$apollo
         .mutate({
           mutation: DELETE_CHARACTER_MUTATION,
@@ -83,7 +81,7 @@ export default {
           optimisticResponse: {
             __typename: "Mutation",
             deleteCharacter: {
-              __typename: "Character", // graphQL type of the card
+              __typename: "Character",
               id: this.character.id
             }
           }

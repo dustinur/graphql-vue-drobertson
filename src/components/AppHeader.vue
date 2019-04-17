@@ -2,7 +2,9 @@
   <div>
     <v-toolbar app dark>
       <v-toolbar-side-icon>
-        <v-img :src="require('@/assets/witcher-logo-b2.png')"></v-img>
+        <router-link to="/">
+          <img src="../assets/witcher-logo-b2.png" height="35" />
+        </router-link>
       </v-toolbar-side-icon>
 
       <v-toolbar-title class="headline text-uppercase">

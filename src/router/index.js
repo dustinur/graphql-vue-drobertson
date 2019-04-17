@@ -3,8 +3,7 @@ import Router from "vue-router";
 
 import WitcherList from "../components/WitcherList";
 import CreateChar from "../components/CreateChar";
-import CharDetails from "../components/CharDetails";
-import CharDetailsTwo from "../components/CharDetailsTwo";
+import UpdateChar from "../components/UpdateChar";
 
 Vue.use(Router);
 
@@ -21,14 +20,15 @@ export default new Router({
       component: CreateChar
     },
     {
-      path: "/details/:id",
-      name: "Details",
-      component: CharDetails
-    },
-    {
-      path: "/detailsTwo/:id",
-      name: "DetailsTwo",
-      component: CharDetailsTwo
+      path: "/update/:id",
+      name: "Update",
+      component: UpdateChar,
+      props: (route) => ({
+        character: {
+          type: Object,
+          required: true,
+        }
+      })
     }
   ],
   mode: "history"
