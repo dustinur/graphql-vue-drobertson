@@ -1,10 +1,10 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="300px" class="ma-auto" color="#222">
+      <v-card width="365px" class="ma-auto" color="#222">
         <v-img
           :src="character.poster"
-          aspect-ratio=".7"
+          aspect-ratio=".5"
           position="center top"
           class="black lighten-2"
         >

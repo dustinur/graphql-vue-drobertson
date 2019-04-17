@@ -4,7 +4,8 @@
       <v-flex xs12 sm6 offset-sm3 md2 offset-md1 offset-lg3>
         <video
           id="videoCard"
-          :src="`${publicPath}img/${character.imageUrl}` || character.imageUrl"
+          :src="character.imageUrl"
+          :alt="character.name"
           :poster="character.poster"
           width="325"
           muted
