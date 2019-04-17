@@ -4,7 +4,8 @@
       <v-card width="325px" color="#222" class="ma-auto">
         <video
           id="videoCard"
-          :src="`${publicPath}img/${character.imageUrl}` || character.imageUrl"
+          :src="character.imageUrl"
+          :alt="character.name"
           :poster="character.poster"
           width="325"
           muted
@@ -24,13 +25,13 @@
           <v-btn
             flat
             color="#d70926"
-            :to="{ 
+            :to=" { 
               name: 'Update', 
               params: { 
-                id: character.id, 
-                name: character.name 
+                id: character.id
               }, 
-              props: true }"
+              props: true
+              } "
           >Edit Character</v-btn>
           <v-img :src="require('@/assets/witcher-logo-w2.png')" height="100" aspect-ratio="1"/>
         </v-card-actions>
@@ -45,15 +46,9 @@ export default {
   props: {
     character: {
       type: Object,
-      required: true,
+      required: true
     }
-  },
-  data() {
-    return {
-      publicPath: process.env.BASE_URL
-    };
-  },
-  methods: {}
+  }
 };
 </script>
 
