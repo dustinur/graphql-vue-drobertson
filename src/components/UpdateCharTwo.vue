@@ -2,7 +2,6 @@
   <form>
     <v-text-field
       v-model="character.name"
-      :error-messages="nameErrors"
       :counter="30"
       label="Name"
       required
@@ -12,7 +11,6 @@
     ></v-text-field>
     <v-text-field
       v-model="character.charClass"
-      :error-messages="nameErrors"
       :counter="30"
       label="Class"
       required
