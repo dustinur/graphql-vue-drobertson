@@ -24,7 +24,7 @@
 
         <v-card-actions class="justify-space-between">
             <div class="text-xs-center">
-              <v-dialog width="332">
+              <v-dialog max-width="900">
                 <template v-slot:activator="{ on }">
                   <v-btn flat color="#d70926" v-on="on">View</v-btn>
                 </template>
@@ -50,13 +50,7 @@ export default {
   components: {
     CharDetails
   },
-  props: {
-    character: {
-      type: Object,
-      dialog: false,
-      required: true
-    }
-  },
+  props: ['character'],
   data() {
     return {
       publicPath: process.env.BASE_URL
@@ -99,4 +93,8 @@ export default {
 </script>
 
 <style>
+.v-dialog {
+  background:rgba(10, 10, 10, 0.9);
+  border-radius: 10px;
+}
 </style>

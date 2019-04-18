@@ -1,30 +1,33 @@
 <template>
+  <form>
+    <v-text-field
+      v-model="character.name"
+      :error-messages="nameErrors"
+      :counter="30"
+      label="Name"
+      required
+      color="#d70926"
+      @input="$v.name.$touch()"
+      @blur="$v.name.$touch()"
+    ></v-text-field>
+    <h4>
+      Class:
+      <span class="pl-1 text-red">{{character.charClass}}</span>
+    </h4>
+    <v-text-field
+      v-model="character.charClass"
+      :error-messages="nameErrors"
+      :counter="30"
+      label="Class"
+      required
+      color="#d70926"
+      @input="$v.name.$touch()"
+      @blur="$v.name.$touch()"
+    ></v-text-field>
 
-        <form>
-          <v-text-field
-            v-model="character.name"
-            :error-messages="nameErrors"
-            :counter="30"
-            label="Name"
-            required
-            color="#d70926"
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-                    <v-text-field
-            v-model="character.charClass"
-            :error-messages="nameErrors"
-            :counter="30"
-            label="Class"
-            required
-            color="#d70926"
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-
-          <v-btn color="#d70926" @click="updateCharacter()">submit</v-btn>
-          <v-btn @click="clear">clear</v-btn>
-        </form>
+    <v-btn color="#d70926" @click="updateCharacter()">submit</v-btn>
+    <v-btn @click="clear">clear</v-btn>
+  </form>
 </template>
 
 <script>
@@ -37,7 +40,7 @@ import {
 
 export default {
   name: "UpdateCharTwo",
-  props: ['currentChar'],
+  props: ["currentChar"],
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(30) }
@@ -61,7 +64,7 @@ export default {
 
   methods: {
     updateCharacter() {
-        this.$apollo
+      this.$apollo
         .mutate({
           mutation: UPDATE_CHARACTER_TWO,
           variables: {
@@ -89,6 +92,8 @@ export default {
     },
     clear() {
       this.$v.$reset();
+      this.character.name = "";
+      this.character.charClass = "";
     }
   }
 };

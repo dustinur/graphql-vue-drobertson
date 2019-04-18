@@ -1,7 +1,7 @@
 <template>
-  <v-layout>
-    <v-flex>
-      <v-card width="325px" color="#222" class="ma-auto">
+  <v-container grid-list-md>
+    <v-layout class="char-card justify-space-between" pt-4 pb-4 row wrap>
+      <v-flex xs12 sm12 md5 ma-auto>
         <video
           id="videoCard"
           :src="character.imageUrl"
@@ -13,15 +13,14 @@
           loop
           type="video/webm"
         />
-        <v-card-title primary-title>
-          <v-flex>
-            <h3 class="subheading text-red">{{ character.charClass }}</h3>
-            <h2 class="headline mb-0">{{ character.name }}</h2>
-            <blockquote class="blockquote body-1 pt-2 pl-1">{{ character.description }}</blockquote>
-          </v-flex>
-        </v-card-title>
+      </v-flex>
 
-        <v-card-actions class="pb-4">
+      <v-flex pa-2 xs12 sm10 md6 ma-auto>
+        <h3>{{ character.charClass }}</h3>
+        <h1>{{ character.name }}</h1>
+        <p>{{ character.description }}</p>
+
+        <v-layout class="justify-space-between" row wrap>
           <v-btn
             flat
             color="#d70926"
@@ -32,21 +31,35 @@
               }, 
               props: true
               } "
-          >Edit Character</v-btn>
-          <v-img :src="require('@/assets/witcher-logo-w2.png')" height="100" aspect-ratio="1"/>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+          >Details</v-btn>
+          <v-btn v-if="!editForm" flat color="#d70926" @click="toggleEdit()">Edit</v-btn>
+          <v-btn v-else color="#d70926" @click="toggleEdit()">Cancel</v-btn>
+        </v-layout>
+        <v-img :src="require('@/assets/witcher-logo-w2.png')" height="150" aspect-ratio="1"/>
+      </v-flex>
+      <v-flex xs12 pa-4 v-if="editForm">
+        <UpdateCharTwo :currentChar="character"/>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
-
 <script>
+import UpdateCharTwo from "./UpdateCharTwo";
+
 export default {
-  props: {
-    character: {
-      type: Object,
-      required: true
+  components: {
+    UpdateCharTwo
+  },
+  props: ["character"],
+  data() {
+    return {
+      editForm: false
+    };
+  },
+  methods: {
+    toggleEdit() {
+      this.editForm = !this.editForm;
     }
   }
 };
