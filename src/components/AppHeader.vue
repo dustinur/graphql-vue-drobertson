@@ -17,7 +17,7 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat to="/">Character List</v-btn>
+        <v-btn flat to="/">Characters</v-btn>
         <v-btn flat to="/create">Create Character</v-btn>
       </v-toolbar-items>
 

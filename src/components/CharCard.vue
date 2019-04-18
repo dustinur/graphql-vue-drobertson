@@ -23,15 +23,17 @@
         </v-card-title>
 
         <v-card-actions class="justify-space-between">
-            <div class="text-xs-center">
-              <v-dialog max-width="900">
-                <template v-slot:activator="{ on }">
-                  <v-btn flat color="#d70926" v-on="on">View</v-btn>
-                </template>
-                <charDetails :character="character"/>
-              </v-dialog>
-            </div>
-            <v-btn flat color="#d70926" @click="deleteCharacter()">Delete</v-btn>
+          <div class="text-xs-center">
+            <v-dialog v-model="dialog" max-width="900">
+              <template v-slot:activator="{ on }">
+                <v-btn flat color="#d70926" v-on="on">View</v-btn>
+              </template>
+              <!-- <v-btn color="primary" flat @click="dialog = false">Close Dialog Toggle</v-btn>
+              <v-btn color="primary" flat @click="closeDialog()">Close Card Method</v-btn> -->
+              <charDetails :character="character" @close-dialog="closeDialog"/>
+            </v-dialog>
+          </div>
+          <v-btn flat color="#d70926" @click="deleteCharacter()">Delete</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -50,13 +52,17 @@ export default {
   components: {
     CharDetails
   },
-  props: ['character'],
+  props: ["character"],
   data() {
     return {
-      publicPath: process.env.BASE_URL
+      dialog: false
     };
   },
   methods: {
+    closeDialog() {
+      console.log("From card" + this.dialog);
+      this.dialog = false;
+    },
     deleteCharacter() {
       this.$apollo
         .mutate({
@@ -94,7 +100,7 @@ export default {
 
 <style>
 .v-dialog {
-  background:rgba(10, 10, 10, 0.9);
+  background: rgba(10, 10, 10, 0.9);
   border-radius: 10px;
 }
 </style>

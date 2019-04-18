@@ -1,6 +1,7 @@
 <template>
   <v-container grid-list-md>
-    <v-layout class="char-card justify-space-between" pt-4 pb-4 row wrap>
+      <v-btn color="#d70926" flat @click="closeDialog()">Close</v-btn>
+    <v-layout class="justify-space-between" pt-4 pb-4 row wrap>
       <v-flex xs12 sm12 md5 ma-auto>
         <video
           id="videoCard"
@@ -33,12 +34,12 @@
               } "
           >Details</v-btn>
           <v-btn v-if="!editForm" flat color="#d70926" @click="toggleEdit()">Edit</v-btn>
-          <v-btn v-else color="#d70926" @click="toggleEdit()">Cancel</v-btn>
+          <v-btn v-else color="#222" @click="toggleEdit()">Cancel</v-btn>
         </v-layout>
         <v-img :src="require('@/assets/witcher-logo-w2.png')" height="150" aspect-ratio="1"/>
       </v-flex>
       <v-flex xs12 pa-4 v-if="editForm">
-        <UpdateCharTwo :currentChar="character"/>
+        <UpdateCharTwo :currentChar="character" @toggleEdit="toggleEdit"/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -58,6 +59,11 @@ export default {
     };
   },
   methods: {
+    closeDialog() {
+      console.log("close dialog 1");
+      this.editForm = false;
+      this.$emit("close-dialog");
+    },
     toggleEdit() {
       this.editForm = !this.editForm;
     }

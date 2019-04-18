@@ -10,10 +10,6 @@
       @input="$v.name.$touch()"
       @blur="$v.name.$touch()"
     ></v-text-field>
-    <h4>
-      Class:
-      <span class="pl-1 text-red">{{character.charClass}}</span>
-    </h4>
     <v-text-field
       v-model="character.charClass"
       :error-messages="nameErrors"
@@ -74,12 +70,20 @@ export default {
               charClass: this.character.charClass
             }
           },
-          update: (store, { data: { updateCharacter } }) => {
-            const data = store.readQuery({
-              query: ALL_CHARACTERS_QUERY
-            });
-            data.characters.push(updateCharacter);
-            store.writeQuery({ query: ALL_CHARACTERS_QUERY, data });
+          refetchQueries: [
+            {
+              query: ALL_CHARACTERS_QUERY,
+              variables: {
+                characters: []
+              }
+            }
+          ],
+          optimisticResponse: {
+            __typename: "Mutation",
+            updateCharacter: {
+              __typename: "Character",
+              id: this.character.id
+            }
           }
         })
         .then(data => {
@@ -89,6 +93,7 @@ export default {
         .catch(error => {
           console.error(error);
         });
+        this.$emit("toggleEdit");
     },
     clear() {
       this.$v.$reset();
