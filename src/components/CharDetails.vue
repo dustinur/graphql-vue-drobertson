@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-md>
-      <v-btn color="#d70926" flat @click="closeDialog()">Close</v-btn>
+      <v-btn color="warning" flat @click="closeDialog()">Close</v-btn>
     <v-layout class="justify-space-between" pt-4 pb-4 row wrap>
       <v-flex xs12 sm12 md5 ma-auto>
         <video
@@ -23,7 +23,8 @@
 
         <v-layout class="justify-space-between" row wrap>
           <v-btn
-            flat
+            flat 
+            large
             color="#d70926"
             :to=" { 
               name: 'Update', 
@@ -32,9 +33,9 @@
               }, 
               props: true
               } "
-          >Details</v-btn>
-          <v-btn v-if="!editForm" flat color="#d70926" @click="toggleEdit()">Edit</v-btn>
-          <v-btn v-else color="#222" @click="toggleEdit()">Cancel</v-btn>
+          ><h3>Details</h3></v-btn>
+          <v-btn v-if="!editForm" flat large color="#d70926" @click="toggleEdit()"><h3>Edit</h3></v-btn>
+          <v-btn v-else color="#222" @click="toggleEdit()"><h3>Cancel</h3></v-btn>
         </v-layout>
         <v-img :src="require('@/assets/witcher-logo-w2.png')" height="150" aspect-ratio="1"/>
       </v-flex>

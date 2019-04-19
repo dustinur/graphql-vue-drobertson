@@ -4,7 +4,7 @@
       <v-card width="365px" class="ma-auto" color="#222">
         <v-img
           :src="character.poster"
-          aspect-ratio=".5"
+          aspect-ratio=".7"
           position="center top"
           class="black lighten-2"
         >
@@ -26,14 +26,13 @@
           <div class="text-xs-center">
             <v-dialog v-model="dialog" max-width="900">
               <template v-slot:activator="{ on }">
-                <v-btn flat color="#d70926" v-on="on">View</v-btn>
+                <v-btn flat color="#d70926" v-on="on"><h3>View</h3></v-btn>
               </template>
-              <!-- <v-btn color="primary" flat @click="dialog = false">Close Dialog Toggle</v-btn>
-              <v-btn color="primary" flat @click="closeDialog()">Close Card Method</v-btn> -->
+              
               <charDetails :character="character" @close-dialog="closeDialog"/>
             </v-dialog>
           </div>
-          <v-btn flat color="#d70926" @click="deleteCharacter()">Delete</v-btn>
+          <v-btn flat color="#d70926" @click="deleteCharacter()"><h3>Delete</h3></v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
