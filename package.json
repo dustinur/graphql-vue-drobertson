@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -13,8 +14,13 @@
     "apollo-link": "^1.2.11",
     "apollo-link-http": "^1.5.14",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "core-js": "^2.6.5",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "graphql": "^14.2.1",
+    "mongoose": "^5.5.2",
+    "nodemon": "^1.18.11",
     "vue": "^2.6.10",
     "vue-apollo": "^3.0.0-beta.28",
     "vue-router": "^3.0.3",

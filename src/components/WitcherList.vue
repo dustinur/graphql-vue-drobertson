@@ -4,7 +4,8 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex v-for="character in characters" :key="character.id">
-        <CharCard :character="character"/>
+        {{ character.name }}
+        <!-- <CharCard :character="character"/> -->
       </v-flex>
     </v-layout>
   </v-container>
@@ -12,13 +13,15 @@
 
 <script>
 // import axios from "axios";
-import { ALL_CHARACTERS_QUERY } from "../constants/graphql";
-import CharCard from "./CharCard.vue";
+// import { ALL_CHARACTERS_QUERY } from "../constants/graphql";
+// import CharCard from "./CharCard.vue";
+const API_URL = "http://localhost:3200/characters";
+
 
 
 export default {
   components: {
-    CharCard
+    // CharCard
   },
   data() {
     return {
@@ -26,15 +29,17 @@ export default {
     };
   },
   mounted() {
-    // return axios
-    //   .get("https://pokeapi.co/api/v2/pokemon/1")
-    //   .then(response => (this.info = response));
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(result => {
+        this.characters = result;
+      });
   },
-  apollo: {
-    characters: {
-      query: ALL_CHARACTERS_QUERY
-    }
-  }
+  // apollo: {
+  //   characters: {
+  //     query: ALL_CHARACTERS_QUERY
+  //   }
+  // }
 };
 </script>
 
