@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -14,7 +15,6 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-// app.use(express.static("public"));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,5 +41,5 @@ app.get("*", (req, res) => {
 const port = process.env.PORT || 3200;
 
 app.listen(port, () => {
-  console.log(`Server is up and running on port ${port}`);
+  console.log(`RESTful server up and running on port ${port}`);
 });

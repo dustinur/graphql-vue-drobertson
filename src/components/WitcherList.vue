@@ -1,5 +1,4 @@
-// Play on hover
-
+/* eslint-disable */
 <template>
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
@@ -12,12 +11,10 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 // import { ALL_CHARACTERS_QUERY } from "../constants/graphql";
 // import CharCard from "./CharCard.vue";
 const API_URL = "http://localhost:3200/characters";
-
-
 
 export default {
   components: {
@@ -28,13 +25,28 @@ export default {
       characters: []
     };
   },
+
+  methods: {},
   mounted() {
-    fetch(API_URL)
-      .then(response => response.json())
+    axios
+      .get(API_URL)
+      .then(response => response.data)
       .then(result => {
         this.characters = result;
+      })
+      .catch(error => {
+        console.log(error);
       });
-  },
+  }
+  // fetch(API_URL)
+  //   .then(response => response.json())
+  //   .then(result => {
+  //     this.characters = result;
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error);
+  //   });
+  // }
   // apollo: {
   //   characters: {
   //     query: ALL_CHARACTERS_QUERY
