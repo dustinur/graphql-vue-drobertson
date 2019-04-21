@@ -1,57 +1,42 @@
-/* eslint-disable */
 <template>
   <v-container grid-list-xl fluid>
-    <v-layout row wrap>
-      <v-flex v-for="character in characters" :key="character.id">
-        {{ character.name }}
-        <!-- <CharCard :character="character"/> -->
-      </v-flex>
-    </v-layout>
+    <section v-if="errored">
+      <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
+    </section>
+
+    <section v-else>
+      <v-layout row wrap>
+        <div v-if="$apollo.loading">Loading...</div>
+
+        <v-flex v-else v-for="character in characters" :key="character.id">
+          <CharCard :character="character"/>
+        </v-flex>
+      </v-layout>
+    </section>
   </v-container>
 </template>
 
 <script>
-import axios from "axios";
-// import { ALL_CHARACTERS_QUERY } from "../constants/graphql";
-// import CharCard from "./CharCard.vue";
-const API_URL = "http://localhost:3200/characters";
+/* eslint-disable no-console */
+import { ALL_CHARACTERS_QUERY } from "../constants/graphql";
+import CharCard from "./CharCard.vue";
 
 export default {
   components: {
-    // CharCard
+    CharCard
   },
   data() {
     return {
-      characters: []
+      characters: [],
+      loading: true,
+      errored: false
     };
   },
-
-  methods: {},
-  mounted() {
-    axios
-      .get(API_URL)
-      .then(response => response.data)
-      .then(result => {
-        this.characters = result;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  apollo: {
+    characters: {
+      query: ALL_CHARACTERS_QUERY
+    }
   }
-  // fetch(API_URL)
-  //   .then(response => response.json())
-  //   .then(result => {
-  //     this.characters = result;
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error);
-  //   });
-  // }
-  // apollo: {
-  //   characters: {
-  //     query: ALL_CHARACTERS_QUERY
-  //   }
-  // }
 };
 </script>
 
