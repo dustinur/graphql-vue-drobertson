@@ -80,8 +80,6 @@ export default {
   },
   data() {
     return {
-      characters: [],
-      error: "",
       character: {
         name: "",
         classType: "",
@@ -109,26 +107,22 @@ export default {
         headers: {
           "content-type": "application/json"
         }
-      })
-        .then(response => response.json())
-        .then(result => {
-          if (result.details) {
-            // there was an error...
-            const error = result.details
-              .map(detail => detail.character)
-              .join(". ");
-            this.error = error;
-          } else {
-            this.error = "";
-            this.characters.push(result);
-          }
-        })
-        .then(data => {
-          this.$router.push({ path: "/" });
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      }).then(response => {
+        response.json();
+        this.$router.push({ path: "/restlist" });
+      });
+      // .then(result => {
+      //   //   if (result.details) {
+      //   //     // there was an error...
+      //   //     const error = result.details
+      //   //       .map(detail => detail.character)
+      //   //       .join(". ");
+      //   //     this.error = error;
+      //   //   } else {
+      //   //     this.error = "";
+      //   this.characters.push(result);
+      //   this.$router.push({ path: "/" });
+      // });
     },
     clear() {
       this.$v.$reset();
