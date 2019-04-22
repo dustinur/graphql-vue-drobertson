@@ -4,6 +4,7 @@ import Router from "vue-router";
 import WitcherList from "../components/WitcherList";
 import RestWitcherList from "../components/RestWitcherList";
 import CreateChar from "../components/CreateChar";
+import RestCreateChar from "../components/RestCreateChar";
 import UpdateChar from "../components/UpdateChar";
 
 Vue.use(Router);
@@ -24,6 +25,11 @@ export default new Router({
       path: "/create",
       name: "Create",
       component: CreateChar
+    },
+    {
+      path: "/rest-create",
+      name: "RestCreateChar",
+      component: RestCreateChar
     },
     {
       path: "/update/:id",

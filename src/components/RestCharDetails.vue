@@ -9,17 +9,6 @@
           aspect-ratio="1"
           class="grey lighten-2"
         />
-        <!-- <video
-          id="videoCard"
-          :src="character.imageUrl"
-          :alt="character.name"
-          :poster="character.poster"
-          width="325"
-          muted
-          autoplay
-          loop
-          type="video/webm"
-        /> -->
       </v-flex>
 
       <v-flex pa-2 xs12 sm10 md6 ma-auto>
