@@ -38,7 +38,7 @@ app.get("*", (req, res) => {
   res.redirect("/");
 });
 
-const port = process.env.PORT || 3200;
+const port = process.env.PORT || 4402;
 
 app.listen(port, () => {
   console.log(`RESTful server up and running on port ${port}`);

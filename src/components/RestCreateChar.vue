@@ -70,7 +70,7 @@
 import axios from "axios";
 import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
-const API_URL = "http://localhost:3200/characters/create";
+const API_URL = "http://localhost:4402/characters/create";
 
 export default {
   name: "RestCreateChar",

@@ -21,7 +21,7 @@
 /* eslint-disable no-console */
 import axios from "axios";
 import RestCharCard from "./RestCharCard"
-const API_URL = "http://localhost:3200/characters";
+const API_URL = "http://localhost:4402/characters";
 
 export default {
   name: "RestWitcherList",
