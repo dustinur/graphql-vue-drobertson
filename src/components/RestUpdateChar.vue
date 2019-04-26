@@ -29,7 +29,7 @@
           ></v-text-field>
 
           <v-btn color="#d70926" @click="updateCharacter()">submit</v-btn>
-          <v-btn @click="clear">clear</v-btn>
+          <v-btn @click="clear()">clear</v-btn>
         </form>
       </v-flex>
     </v-layout>
@@ -39,11 +39,6 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
-import {
-  ALL_CHARACTERS_QUERY,
-  CHARACTER_QUERY,
-  UPDATE_CHARACTER_MUTATION
-} from "../constants/graphql";
 
 export default {
   name: "RestUpdateChar",
@@ -66,20 +61,20 @@ export default {
       return errors;
     }
   },
-//   created() {
-//     let uri = `http://localhost:4402/characters/${
-//       this.$route.params.id
-//     }/update`;
-//     this.axios.get(uri).then(response => {
-//       this.character = response.data;
-//     });
-//   },
+    created() {
+      let uri = `http://localhost:4402/characters/${
+        this.$route.params.id
+      }`;
+      this.axios.get(uri).then(response => {
+        this.character = response.data;
+      });
+    },
   methods: {
     updateCharacter() {
       let uri = `http://localhost:4402/characters/${
         this.$route.params.id
       }/update`;
-      this.axios.post(uri, this.character).then(() => {
+      this.axios.put(uri, this.character).then(() => {
         this.$router.push({ path: "/restlist" });
       });
     }
