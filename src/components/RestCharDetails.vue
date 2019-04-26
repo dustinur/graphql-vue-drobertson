@@ -17,36 +17,36 @@
         <p>{{ character.description }}</p>
 
         <v-layout class="justify-space-between" row wrap>
-          <!-- <v-btn
+          <v-btn
             flat
             color="#d70926"
             :to=" { 
               name: 'Update', 
               params: { 
-                id: character.id
-              }, 
-              props: true
+                id: character._id
+              },
+                props: true
               } "
-          >Details</v-btn> -->
+          >Update</v-btn>
           <v-btn v-if="!editForm" flat color="#d70926" @click="toggleEdit()">Edit</v-btn>
           <v-btn v-else color="#222" @click="toggleEdit()">Cancel</v-btn>
         </v-layout>
         <v-img :src="require('@/assets/witcher-logo-w2.png')" height="150" aspect-ratio="1"/>
       </v-flex>
-      <!-- <v-flex xs12 pa-4 v-if="editForm">
-        <UpdateCharTwo :currentChar="character" @toggleEdit="toggleEdit"/>
-      </v-flex>-->
+      <v-flex xs12 pa-4 v-if="editForm">
+        <!-- <RestUpdateChar :currentChar="character" @toggleEdit="toggleEdit"/> -->
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-// import UpdateCharTwo from "./UpdateCharTwo";
+// import RestUpdateChar from "./RestUpdateChar";
 
 export default {
-  components: {
-    // UpdateCharTwo
-  },
+  // components: {
+  //   RestUpdateChar
+  // },
   props: ["character"],
   data() {
     return {

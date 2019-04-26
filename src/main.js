@@ -10,6 +10,11 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+Vue.use(VueAxios, axios)
+
 new Vue({
   apolloProvider: createProvider(),
   router,

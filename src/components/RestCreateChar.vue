@@ -101,16 +101,16 @@ export default {
   methods: {
     createCharacter() {
       console.log(this.character);
-      fetch(API_URL, {
-        method: "POST",
-        body: JSON.stringify(this.character),
-        headers: {
-          "content-type": "application/json"
-        }
-      }).then(response => {
-        response.json();
-        this.$router.push({ path: "/restlist" });
-      });
+      // fetch(API_URL, {
+      //   method: "POST",
+      //   body: JSON.stringify(this.character),
+      //   headers: {
+      //     "content-type": "application/json"
+      //   }
+      // }).then(response => {
+      //   response.json();
+      //   this.$router.push({ path: "/restlist" });
+      // });
       // .then(result => {
       //   //   if (result.details) {
       //   //     // there was an error...
@@ -123,6 +123,10 @@ export default {
       //   this.characters.push(result);
       //   this.$router.push({ path: "/" });
       // });
+      let uri = "http://localhost:4402/characters/create";
+      this.axios.post(uri, this.character).then(() => {
+        this.$router.push({ path: "/restlist" });
+      });
     },
     clear() {
       this.$v.$reset();

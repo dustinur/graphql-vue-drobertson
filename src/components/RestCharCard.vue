@@ -41,10 +41,6 @@
 
 <script>
 import RestCharDetails from "./RestCharDetails.vue";
-// import {
-//   ALL_CHARACTERS_QUERY,
-//   DELETE_CHARACTER_MUTATION
-// } from "../constants/graphql";
 
 export default {
   components: {
@@ -60,37 +56,6 @@ export default {
     closeDialog() {
       this.dialog = false;
     },
-    // deleteCharacter() {
-    //   this.$apollo
-    //     .mutate({
-    //       mutation: DELETE_CHARACTER_MUTATION,
-    //       variables: {
-    //         id: this.character.id
-    //       },
-    //       refetchQueries: [
-    //         {
-    //           query: ALL_CHARACTERS_QUERY,
-    //           variables: {
-    //             characters: []
-    //           }
-    //         }
-    //       ],
-    //       optimisticResponse: {
-    //         __typename: "Mutation",
-    //         deleteCharacter: {
-    //           __typename: "Character",
-    //           id: this.character.id
-    //         }
-    //       }
-    //     })
-    //     .then(data => {
-    //       console.log(data);
-    //       this.$router.push({ path: "/" });
-    //     })
-    //     .catch(error => {
-    //       console.error(error);
-    //     });
-    // }
   }
 };
 </script>

@@ -23,6 +23,7 @@
     "nodemon": "^1.18.11",
     "vue": "^2.6.10",
     "vue-apollo": "^3.0.0-beta.28",
+    "vue-axios": "^2.1.4",
     "vue-router": "^3.0.3",
     "vuelidate": "^0.7.4",
     "vuetify": "^1.5.5"

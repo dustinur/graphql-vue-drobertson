@@ -6,6 +6,7 @@ import RestWitcherList from "../components/RestWitcherList";
 import CreateChar from "../components/CreateChar";
 import RestCreateChar from "../components/RestCreateChar";
 import UpdateChar from "../components/UpdateChar";
+import RestUpdateChar from "../components/RestUpdateChar";
 
 Vue.use(Router);
 
@@ -30,6 +31,17 @@ export default new Router({
       path: "/rest-create",
       name: "RestCreateChar",
       component: RestCreateChar
+    },
+    {
+      name: "rest-update",
+      path: "/rest-update/:id",
+      component: RestUpdateChar,
+      props: () => ({
+        character: {
+          type: Object,
+          required: true
+        }
+      })
     },
     {
       path: "/update/:id",
