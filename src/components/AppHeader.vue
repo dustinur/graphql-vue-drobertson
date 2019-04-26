@@ -3,7 +3,7 @@
     <v-toolbar app dark>
       <v-toolbar-side-icon>
         <router-link to="/">
-          <img src="../assets/witcher-logo-b2.png" height="35" />
+          <img src="../assets/witcher-logo-b2.png" height="35">
         </router-link>
       </v-toolbar-side-icon>
 
@@ -19,9 +19,9 @@
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat to="/">Characters</v-btn>
         <v-btn flat to="/create">Create Character</v-btn>
-`        <v-btn flat to="/restlist">Rest Characters</v-btn>
+        <v-btn flat to="/restlist">Rest Characters</v-btn>
         <v-btn flat to="/rest-create">Rest Create</v-btn>
-`      </v-toolbar-items>
+      </v-toolbar-items>
 
       <v-btn flat href="https://github.com/dustinur/graphql-vue-drobertson" target="_blank">
         <span class="mr-2">github</span>
