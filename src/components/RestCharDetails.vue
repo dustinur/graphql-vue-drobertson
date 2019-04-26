@@ -21,7 +21,7 @@
             flat
             color="#d70926"
             :to=" { 
-              name: 'Update', 
+              name: 'Rest-Update', 
               params: { 
                 id: character._id
               },

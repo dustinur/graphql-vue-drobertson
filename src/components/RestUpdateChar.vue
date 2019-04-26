@@ -66,14 +66,14 @@ export default {
       return errors;
     }
   },
-  created() {
-    let uri = `http://localhost:4402/characters/${
-      this.$route.params.id
-    }/update`;
-    this.axios.get(uri).then(response => {
-      this.character = response.data;
-    });
-  },
+//   created() {
+//     let uri = `http://localhost:4402/characters/${
+//       this.$route.params.id
+//     }/update`;
+//     this.axios.get(uri).then(response => {
+//       this.character = response.data;
+//     });
+//   },
   methods: {
     updateCharacter() {
       let uri = `http://localhost:4402/characters/${
