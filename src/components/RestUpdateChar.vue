@@ -19,10 +19,16 @@
         <form>
           <v-text-field
             v-model="character.name"
-            :error-messages="nameErrors"
             :counter="25"
             label="Name"
-            required
+            color="#d70926"
+            @input="$v.name.$touch()"
+            @blur="$v.name.$touch()"
+          ></v-text-field>
+          <v-text-field
+            v-model="character.imageUrl"
+            :counter="25"
+            label="Image URL"
             color="#d70926"
             @input="$v.name.$touch()"
             @blur="$v.name.$touch()"
@@ -61,14 +67,12 @@ export default {
       return errors;
     }
   },
-    created() {
-      let uri = `http://localhost:4402/characters/${
-        this.$route.params.id
-      }`;
-      this.axios.get(uri).then(response => {
-        this.character = response.data;
-      });
-    },
+  created() {
+    let uri = `http://localhost:4402/characters/${this.$route.params.id}`;
+    this.axios.get(uri).then(response => {
+      this.character = response.data;
+    });
+  },
   methods: {
     updateCharacter() {
       let uri = `http://localhost:4402/characters/${

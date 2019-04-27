@@ -1,6 +1,5 @@
 <template>
   <v-container grid-list-md>
-    <v-btn color="#d70926" flat @click="closeDialog()">Close</v-btn>
     <v-layout class="justify-space-between" pt-4 pb-4 row wrap>
       <v-flex xs12 sm12 md5 ma-auto>
         <v-img
@@ -16,53 +15,27 @@
         <h1>{{ character.name }}</h1>
         <p>{{ character.description }}</p>
 
-        <v-layout class="justify-space-between" row wrap>
+        <v-layout class="justify-start" row wrap>
           <v-btn
             flat
             color="#d70926"
             :to=" { 
-              name: 'Rest-Update', 
-              params: { 
-                id: character._id
-              },
-                props: true
+              name: 'RestUpdate', 
+              params: { id: character._id },
+              props: true
               } "
           >Update</v-btn>
-          <v-btn v-if="!editForm" flat color="#d70926" @click="toggleEdit()">Edit</v-btn>
-          <v-btn v-else color="#222" @click="toggleEdit()">Cancel</v-btn>
         </v-layout>
         <v-img :src="require('@/assets/witcher-logo-w2.png')" height="150" aspect-ratio="1"/>
-      </v-flex>
-      <v-flex xs12 pa-4 v-if="editForm">
-        <!-- <RestUpdateChar :currentChar="character" @toggleEdit="toggleEdit"/> -->
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-// import RestUpdateChar from "./RestUpdateChar";
-
 export default {
-  // components: {
-  //   RestUpdateChar
-  // },
-  props: ["character"],
-  data() {
-    return {
-      editForm: false
-    };
-  },
-  methods: {
-    closeDialog() {
-      console.log("close dialog 1");
-      this.editForm = false;
-      this.$emit("close-dialog");
-    },
-    toggleEdit() {
-      this.editForm = !this.editForm;
-    }
-  }
+  name: "RestCharDetails",
+  props: ["character"]
 };
 </script>
 

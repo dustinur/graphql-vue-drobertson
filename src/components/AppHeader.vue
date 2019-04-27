@@ -20,7 +20,7 @@
         <v-btn flat to="/">Characters</v-btn>
         <v-btn flat to="/create">Create Character</v-btn>
         <v-btn flat to="/restlist">Rest Characters</v-btn>
-        <v-btn flat to="/rest-create">Rest Create</v-btn>
+        <v-btn flat to="/restCreate">Rest Create</v-btn>
       </v-toolbar-items>
 
       <v-btn flat href="https://github.com/dustinur/graphql-vue-drobertson" target="_blank">

@@ -34,14 +34,14 @@ export default new Router({
     },
     {
       path: "/rest-update/:id",
-      name: "Rest-Update",
+      name: "RestUpdate",
       component: RestUpdateChar,
-      props: () => ({
-        character: {
-          type: Object,
-          required: true
-        }
-      })
+      // props: () => ({
+      //   character: {
+      //     type: Object,
+      //     required: true
+      //   }
+      // })
     },
     {
       path: "/update/:id",
