@@ -1,5 +1,8 @@
 <template>
   <v-container grid-list-md>
+        <!-- <h1 class="headline text-uppercase font-weight-black text-xs-center pb-2">
+      REST<span class="font-weight-light">Update</span>
+    </h1> -->
     <v-layout row wrap>
       <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg5 offset-lg0 pa-4>
         <v-img
@@ -8,17 +11,18 @@
           :alt="character.name"
           position="center top"
           aspect-ratio=".72"
-          class="grey lighten-2 elevation-2"
+          class="grey darken-4 elevation-2"
         />
       </v-flex>
       <v-flex xs12 sm10 offset-sm1 md10 offset-md1 lg6 offset-lg0 pa-2>
+                <h1 class="headline text-uppercase font-weight-black text-xs-center pt-3 pb-4">
+      REST<span class="font-weight-light">Update</span>
+    </h1>
         <h3 class="char-name">{{ character.classType }}</h3>
         <h1>{{ character.name }}</h1>
-        <p>{{ character.description }}</p>
-        <!-- </v-flex>
+        <p class="char-class">{{ character.description }}</p>
 
-        <v-flex xs12 sm10 offset-sm1 offset-md1 lg6 offset-lg0 xl6 pt-4>-->
-        <v-flex p-4>
+        <v-flex p-4 mt-4>
           <form>
             <v-text-field
               v-model="character.name"
@@ -52,9 +56,9 @@
               @input="$v.name.$touch()"
               @blur="$v.name.$touch()"
             ></v-text-field>
-            <v-btn  color="#158775" @click="updateCharacter()">submit</v-btn>
-            <v-btn  @click="clear()">clear</v-btn>
-            <v-btn  color="#af4343" to="/restlist">cancel</v-btn>
+            <v-btn class="font-weight-black" flat color="#158775" @click="updateCharacter()">submit</v-btn>
+            <v-btn class="font-weight-black" flat @click="clear()">clear</v-btn>
+            <v-btn class="font-weight-black" flat color="#af4343" to="/restlist">cancel</v-btn>
           </form>
         </v-flex>
       </v-flex>

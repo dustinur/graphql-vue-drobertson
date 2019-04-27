@@ -1,27 +1,32 @@
 <template>
-  <form>
-    <v-text-field
-      v-model="character.name"
-      :counter="30"
-      label="Name"
-      required
-      color="#EDCD95"
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
-    ></v-text-field>
-    <v-text-field
-      v-model="character.charClass"
-      :counter="30"
-      label="Class"
-      required
-      color="#EDCD95"
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
-    ></v-text-field>
+  <div>
+    <h1 class="headline text-uppercase font-weight-black text-xs-left pb-2">
+      GQL<span class="headline font-weight-light text-xs-center">Update</span>
+    </h1>
+    <form>
+      <v-text-field
+        v-model="character.name"
+        :counter="30"
+        label="Name"
+        required
+        color="#EDCD95"
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-text-field
+        v-model="character.charClass"
+        :counter="30"
+        label="Class"
+        required
+        color="#EDCD95"
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
 
-    <v-btn color="#158775" @click="updateCharacter()">submit</v-btn>
-    <v-btn @click="clear">clear</v-btn>
-  </form>
+      <v-btn class="font-weight-black" flat color="#158775" @click="updateCharacter()">submit</v-btn>
+      <v-btn class="font-weight-black" flat @click="clear">clear</v-btn>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -91,7 +96,7 @@ export default {
         .catch(error => {
           console.error(error);
         });
-        this.$emit("toggleEdit");
+      this.$emit("toggleEdit");
     },
     clear() {
       this.$v.$reset();

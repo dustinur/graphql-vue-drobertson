@@ -36,12 +36,6 @@ export default new Router({
       path: "/rest-update/:id",
       name: "RestUpdate",
       component: RestUpdateChar,
-      // props: () => ({
-      //   character: {
-      //     type: Object,
-      //     required: true
-      //   }
-      // })
     },
     {
       path: "/update/:id",

@@ -1,6 +1,8 @@
 <template>
   <v-container grid-list-md>
-    <h1 class="headline font-weight-thin text-xs-center text-md-left pl-4">Character Creation</h1>
+    <h1 class="headline text-uppercase font-weight-black text-xs-center">
+      GQL<span class="headline font-weight-light text-xs-center">Create</span>
+    </h1>
     <v-layout row wrap>
       <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg5 offset-lg0 pa-4>
         <v-img
@@ -9,7 +11,7 @@
           :alt="name"
           position="center top"
           aspect-ratio=".72"
-          class="grey lighten-2 elevation-2"
+          class="grey darken-4 elevation-2"
         />
       </v-flex>
       <v-flex xs12 sm10 offset-sm1 md10 offset-md1 lg6 offset-lg0 pa-2>
@@ -59,9 +61,9 @@
               @input="$v.name.$touch()"
               @blur="$v.name.$touch()"
             ></v-text-field>
-            <v-btn color="#158775" @click="createCharacter()">submit</v-btn>
-            <v-btn @click="clear()">clear</v-btn>
-            <v-btn color="#af4343" to="/">cancel</v-btn>
+            <v-btn class="font-weight-black" flat color="#158775" @click="createCharacter()">submit</v-btn>
+            <v-btn class="font-weight-black" flat @click="clear()">clear</v-btn>
+            <v-btn class="font-weight-black" flat color="#af4343" to="/">cancel</v-btn>
           </form>
         </v-flex>
       </v-flex>

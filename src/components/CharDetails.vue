@@ -1,6 +1,6 @@
 <template>
-  <v-container grid-list-md>
-      <v-btn color="#999" flat @click="closeDialog()">Close</v-btn>
+  <v-container grid-list-md pt-0 pb-4>
+    <v-btn class="btn-close font-weight-bold mt-0 pt-4" color="#999" flat @click="closeDialog()">Close</v-btn>
     <v-layout class="justify-space-between" pt-4 pb-4 row wrap>
       <v-flex xs12 sm6 offset-sm3 md5 ma-auto>
         <video
@@ -18,13 +18,20 @@
 
       <v-flex pa-2 xs12 sm10 md6 ma-auto>
         <h3 class="char-name">{{ character.charClass }}</h3>
-        <h1 class="">{{ character.name }}</h1>
+        <h1 class>{{ character.name }}</h1>
         <p class="char-class">{{ character.description }}</p>
 
         <v-layout class="justify-space-between" row wrap>
-          <v-btn v-if="!editForm" flat color="#158775" @click="toggleEdit()">Edit</v-btn>
-          <v-btn v-else color="#222" @click="toggleEdit()">Cancel</v-btn>
           <v-btn
+            class="font-weight-bold"
+            v-if="!editForm"
+            flat
+            color="#158775"
+            @click="toggleEdit()"
+          >Edit</v-btn>
+          <v-btn class="font-weight-bold" v-else color="#222" @click="toggleEdit()">Cancel</v-btn>
+          <v-btn
+            class="font-weight-bold"
             flat
             color="#af4343"
             :to=" { 
@@ -72,10 +79,14 @@ export default {
 </script>
 
 <style>
+.btn-close {
+  position: sticky;
+  left: 88%;
+}
 .char-class {
   color: #b4b4b4;
 }
 .char-name {
-  color: #EDCD95;
+  color: #edcd95;
 }
 </style>

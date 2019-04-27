@@ -41,7 +41,7 @@ exports.character_update = function(req, res) {
     character
   ) {
     if (err) return next(err);
-    res.send("Character udpated.");
+    res.send("Character updated.");
   });
 };
 

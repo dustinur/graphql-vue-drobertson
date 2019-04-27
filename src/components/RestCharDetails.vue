@@ -6,7 +6,7 @@
           :src="character.imageUrl"
           :alt="character.name"
           position="center top"
-          aspect-ratio=".72"
+          :aspect-ratio="9/16"
           class="grey lighten-2"
         />
       </v-flex>
@@ -18,6 +18,7 @@
 
         <v-layout class="justify-start" row wrap>
           <v-btn
+            class="font-weight-black"
             flat
             color="#158775"
             :to=" { 

@@ -27,21 +27,22 @@
 
                 <v-card-title primary-title>
                   <v-flex>
-                    <h4 class="char-class">{{ character.classType }}</h4>
-                    <h2 class="headline mb-0">{{ character.name }}</h2>
+                    <h4 class="char-class font-weight-light">{{ character.classType }}</h4>
+                    <h2 class="headline font-weight-medium mb-0">{{ character.name }}</h2>
                   </v-flex>
                 </v-card-title>
 
-                <v-card-actions class="justify-space-between">
+                <v-card-actions class="justify-space-between pl-1 pr-1 pt-0 pb-3">
                   <div class="text-xs-center">
                     <v-dialog v-model="dialog" max-width="900">
                       <template v-slot:activator="{ on }">
-                        <v-btn flat color="#158775" v-on="on">View</v-btn>
+                        <v-btn class="font-weight-black" flat color="#158775" v-on="on">View</v-btn>
                       </template>
                       <RestCharDetails :character="character"/>
                     </v-dialog>
                   </div>
                   <v-btn
+                    class="font-weight-black"
                     flat
                     color="#af4343"
                     @click.prevent="deleteCharacter(index, character._id)"

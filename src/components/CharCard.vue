@@ -4,7 +4,7 @@
       <v-card width="365px" class="ma-auto" color="#1d1d1d">
         <v-img
           :src="character.poster"
-          aspect-ratio=".5"
+          :aspect-ratio="9/16"
           position="center top"
           class="black lighten-2"
         >
@@ -15,23 +15,24 @@
           </template>
         </v-img>
 
-        <v-card-title primary-title>
+        <v-card-title primary-title class="pb-0">
           <v-flex>
-            <h4 class="char-class">{{ character.charClass }}</h4>
-            <h2 class="headline mb-0">{{ character.name }}</h2>
+            <h4 class="char-class font-weight-light
+            ">{{ character.charClass }}</h4>
+            <h2 class="headline font-weight-medium mb-0">{{ character.name }}</h2>
           </v-flex>
         </v-card-title>
 
-        <v-card-actions class="justify-space-between">
+        <v-card-actions class="justify-space-between pl-1 pr-1 pt-0 pb-3">
           <div class="text-xs-center">
             <v-dialog v-model="dialog" max-width="900">
               <template v-slot:activator="{ on }">
-                <v-btn flat color="#158775" v-on="on">View</v-btn>
+                <v-btn class="font-weight-black" flat color="#158775" v-on="on">View</v-btn>
               </template>
               <charDetails :character="character" @close-dialog="closeDialog"/>
             </v-dialog>
           </div>
-          <v-btn flat color="#af4343" @click="deleteCharacter()">Delete</v-btn>
+          <v-btn class="font-weight-black" flat color="#af4343" @click="deleteCharacter()">Delete</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
