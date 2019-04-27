@@ -1,7 +1,7 @@
 <template>
   <v-container grid-list-md>
     <v-layout class="justify-space-between" pt-4 pb-4 row wrap>
-      <v-flex xs12 sm12 md5 ma-auto>
+      <v-flex xs12 sm6 offset-sm3 md5 ma-auto>
         <v-img
           :src="character.imageUrl"
           :alt="character.name"
@@ -12,7 +12,7 @@
       </v-flex>
 
       <v-flex pa-2 xs12 sm10 md6 ma-auto>
-        <h3 class="char-class">{{ character.classType }}</h3>
+        <h3 class="char-name">{{ character.classType }}</h3>
         <h1>{{ character.name }}</h1>
         <p class="char-class">{{ character.description }}</p>
 

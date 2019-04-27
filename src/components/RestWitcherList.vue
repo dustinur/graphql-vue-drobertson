@@ -14,7 +14,7 @@
               <v-card width="365px" class="ma-auto" color="#1d1d1d">
                 <v-img
                   :src="character.imageUrl"
-                  aspect-ratio=".72"
+                  :aspect-ratio="9/16"
                   position="top center"
                   class="black lighten-2"
                 >

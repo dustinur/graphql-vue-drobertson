@@ -1,44 +1,62 @@
 <template>
   <v-container grid-list-md>
     <v-layout row wrap>
-      <v-flex xs12 sm6 offset-sm3 md2 offset-md1 offset-lg3>
+      <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg5 offset-lg0 pa-4>
         <v-img
+          width="100%"
           :src="character.imageUrl"
           :alt="character.name"
           position="center top"
           aspect-ratio=".72"
-          class="grey lighten-2"
+          class="grey lighten-2 elevation-2"
         />
       </v-flex>
-      <v-flex xs12 sm6 offset-sm3 md3 offset-md3 offset-lg2 offset-xl1>
+      <v-flex xs12 sm10 offset-sm1 md10 offset-md1 lg6 offset-lg0 pa-2>
         <h3 class="char-name">{{ character.classType }}</h3>
         <h1>{{ character.name }}</h1>
         <p>{{ character.description }}</p>
-      </v-flex>
+        <!-- </v-flex>
 
-      <v-flex xs12 sm6 offset-sm3 offset-md1 offset-lg3 xl6 pt-4>
-        <form>
-          <v-text-field
-            v-model="character.name"
-            :counter="25"
-            label="Name"
-            color="#af4343"
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-          <v-text-field
-            v-model="character.imageUrl"
-            :counter="25"
-            label="Image URL"
-            color="#af4343"
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-
-          <v-btn color="#158775" @click="updateCharacter()">submit</v-btn>
-          <v-btn @click="clear()">clear</v-btn>
-          <v-btn color="#af4343" to="/restlist">cancel</v-btn>
-        </form>
+        <v-flex xs12 sm10 offset-sm1 offset-md1 lg6 offset-lg0 xl6 pt-4>-->
+        <v-flex p-4>
+          <form>
+            <v-text-field
+              v-model="character.name"
+              :counter="25"
+              label="Name"
+              color="#edcd95"
+              @input="$v.name.$touch()"
+              @blur="$v.name.$touch()"
+            ></v-text-field>
+            <v-text-field
+              v-model="character.classType"
+              :counter="25"
+              label="Class"
+              color="#edcd95"
+              @input="$v.name.$touch()"
+              @blur="$v.name.$touch()"
+            ></v-text-field>
+            <v-text-field
+              v-model="character.imageUrl"
+              :counter="250"
+              label="Image URL"
+              color="#edcd95"
+              @input="$v.name.$touch()"
+              @blur="$v.name.$touch()"
+            ></v-text-field>
+            <v-text-field
+              v-model="character.description"
+              :counter="300"
+              label="Bio / Info"
+              color="#edcd95"
+              @input="$v.name.$touch()"
+              @blur="$v.name.$touch()"
+            ></v-text-field>
+            <v-btn  color="#158775" @click="updateCharacter()">submit</v-btn>
+            <v-btn  @click="clear()">clear</v-btn>
+            <v-btn  color="#af4343" to="/restlist">cancel</v-btn>
+          </form>
+        </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
@@ -87,7 +105,10 @@ export default {
   },
   clear() {
     this.$v.$reset();
-    this.name = "";
+    this.character.name = "";
+    this.character.classType = "";
+    this.character.imageUrl = "";
+    this.character.description = "";
   }
 };
 </script>

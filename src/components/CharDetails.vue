@@ -2,7 +2,7 @@
   <v-container grid-list-md>
       <v-btn color="#999" flat @click="closeDialog()">Close</v-btn>
     <v-layout class="justify-space-between" pt-4 pb-4 row wrap>
-      <v-flex xs12 sm12 md5 ma-auto>
+      <v-flex xs12 sm6 offset-sm3 md5 ma-auto>
         <video
           id="videoCard"
           :src="character.imageUrl"
