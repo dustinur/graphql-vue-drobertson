@@ -11,7 +11,7 @@
         <span>The</span>
         <span class="text-header">W</span>
         <span>itcher</span>
-        <span class="font-weight-light char-class">Character Database</span>
+        <span class="font-weight-light char-class">Character<span class="">DB</span></span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -53,8 +53,8 @@ export default {
   data() {
     return {
       links: [
-        { title: "Graphql Characters", where: "/", icon: "home" },
-        { title: "Graphql Create", where: "/create", icon: "info" },
+        { title: "GQL Characters", where: "/", icon: "home" },
+        { title: "GQL Create", where: "/create", icon: "info" },
         { title: "Rest Characters", where: "/restlist", icon: "warning" },
         { title: "Rest Create", where: "/rest-create", icon: "test" }
       ]

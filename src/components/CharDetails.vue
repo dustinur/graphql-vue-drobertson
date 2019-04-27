@@ -45,7 +45,7 @@
         </v-layout>
         <v-img :src="require('@/assets/witcher-logo-w2.png')" height="150" aspect-ratio="1"/>
       </v-flex>
-      <v-flex xs12 pa-4 v-if="editForm">
+      <v-flex xs12 pt-4 pr-4 pl-4 pb-0 v-if="editForm">
         <UpdateCharTwo :currentChar="character" @toggleEdit="toggleEdit"/>
       </v-flex>
     </v-layout>
