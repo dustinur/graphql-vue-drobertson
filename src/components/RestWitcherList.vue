@@ -8,7 +8,7 @@
       <v-layout row wrap>
         <div v-if="loading">Loading...</div>
 
-        <v-flex v-else v-for="character in characters" :key="character.id">
+        <v-flex v-else v-for="(character, index) in characters" :key="character.id">
           <v-layout>
             <v-flex>
               <v-card width="365px" class="ma-auto" color="#222">
@@ -42,7 +42,7 @@
 
                     </v-dialog>
                   </div>
-                  <v-btn flat color="#d70926" @click.prevent="deleteCharacter(character._id)">Delete</v-btn>
+                  <v-btn flat color="#d70926" @click.prevent="deleteCharacter(index, character._id)">Delete</v-btn>
                 </v-card-actions>
               </v-card>
             </v-flex>
@@ -71,7 +71,7 @@ export default {
     };
   },
   created() {
-    let uri = "https://restful4790-drobertson.herokuapp.com/characters/";
+    let uri = "http://localhost:4402/characters";
     this.axios
       .get(uri)
       .then(response => {
@@ -84,11 +84,13 @@ export default {
       .finally(() => (this.loading = false));
   },
   methods: {
-    deleteCharacter(id) {
-      let uri = `https://restful4790-drobertson.herokuapp.com/characters/${id}/delete`;
+    deleteCharacter(i, id) {
+              // console.log(`Deleted Character: ${i}`)
+
+      let uri = `http://localhost:4402/characters/${id}/delete`;
       this.axios.delete(uri).then(response => {
-        console.log(`Deleted Character: ${id}`)
-        this.characters.splice(this.characters.indexOf(id), 1);
+        console.log(`Deleted Character: ${i}`)
+        this.characters.splice(i, 1);
       });
     }
   }
