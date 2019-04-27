@@ -5,20 +5,21 @@
         <v-img
           :src="character.imageUrl"
           :alt="character.name"
-          aspect-ratio="1"
+          position="center top"
+          aspect-ratio=".72"
           class="grey lighten-2"
         />
       </v-flex>
 
       <v-flex pa-2 xs12 sm10 md6 ma-auto>
-        <h3>{{ character.classType }}</h3>
+        <h3 class="char-class">{{ character.classType }}</h3>
         <h1>{{ character.name }}</h1>
-        <p>{{ character.description }}</p>
+        <p class="char-class">{{ character.description }}</p>
 
         <v-layout class="justify-start" row wrap>
           <v-btn
             flat
-            color="#d70926"
+            color="#158775"
             :to=" { 
               name: 'RestUpdate', 
               params: { id: character._id },

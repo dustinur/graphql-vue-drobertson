@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style>
-.text-red {
-  color: #d70926;
-}
+.char-class { color: #b4b4b4; }
+.text-red { color: #af4343; }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="365px" class="ma-auto" color="#222">
+      <v-card width="365px" class="ma-auto" color="#1d1d1d">
         <v-img
           :src="character.poster"
           aspect-ratio=".5"
@@ -17,7 +17,7 @@
 
         <v-card-title primary-title>
           <v-flex>
-            <h3 class="text-red subheading">{{ character.charClass }}</h3>
+            <h4 class="char-class">{{ character.charClass }}</h4>
             <h2 class="headline mb-0">{{ character.name }}</h2>
           </v-flex>
         </v-card-title>
@@ -26,14 +26,12 @@
           <div class="text-xs-center">
             <v-dialog v-model="dialog" max-width="900">
               <template v-slot:activator="{ on }">
-                <v-btn flat color="#d70926" v-on="on">View</v-btn>
+                <v-btn flat color="#158775" v-on="on">View</v-btn>
               </template>
-              <!-- <v-btn color="primary" flat @click="dialog = false">Close Dialog Toggle</v-btn>
-              <v-btn color="primary" flat @click="closeDialog()">Close Card Method</v-btn> -->
               <charDetails :character="character" @close-dialog="closeDialog"/>
             </v-dialog>
           </div>
-          <v-btn flat color="#d70926" @click="deleteCharacter()">Delete</v-btn>
+          <v-btn flat color="#af4343" @click="deleteCharacter()">Delete</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>

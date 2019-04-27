@@ -5,7 +5,7 @@
       :counter="30"
       label="Name"
       required
-      color="#d70926"
+      color="#EDCD95"
       @input="$v.name.$touch()"
       @blur="$v.name.$touch()"
     ></v-text-field>
@@ -14,12 +14,12 @@
       :counter="30"
       label="Class"
       required
-      color="#d70926"
+      color="#EDCD95"
       @input="$v.name.$touch()"
       @blur="$v.name.$touch()"
     ></v-text-field>
 
-    <v-btn color="#d70926" @click="updateCharacter()">submit</v-btn>
+    <v-btn color="#158775" @click="updateCharacter()">submit</v-btn>
     <v-btn @click="clear">clear</v-btn>
   </form>
 </template>

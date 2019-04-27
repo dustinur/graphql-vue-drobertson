@@ -5,12 +5,13 @@
         <v-img
           :src="character.imageUrl"
           :alt="character.name"
-          aspect-ratio="1"
+          position="center top"
+          aspect-ratio=".72"
           class="grey lighten-2"
         />
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 md3 offset-md3 offset-lg2 offset-xl1>
-        <h3>{{ character.classType }}</h3>
+        <h3 class="char-name">{{ character.classType }}</h3>
         <h1>{{ character.name }}</h1>
         <p>{{ character.description }}</p>
       </v-flex>
@@ -21,7 +22,7 @@
             v-model="character.name"
             :counter="25"
             label="Name"
-            color="#d70926"
+            color="#af4343"
             @input="$v.name.$touch()"
             @blur="$v.name.$touch()"
           ></v-text-field>
@@ -29,13 +30,14 @@
             v-model="character.imageUrl"
             :counter="25"
             label="Image URL"
-            color="#d70926"
+            color="#af4343"
             @input="$v.name.$touch()"
             @blur="$v.name.$touch()"
           ></v-text-field>
 
-          <v-btn color="#d70926" @click="updateCharacter()">submit</v-btn>
+          <v-btn color="#158775" @click="updateCharacter()">submit</v-btn>
           <v-btn @click="clear()">clear</v-btn>
+          <v-btn color="#af4343" to="/restlist">cancel</v-btn>
         </form>
       </v-flex>
     </v-layout>

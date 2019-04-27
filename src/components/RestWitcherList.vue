@@ -11,11 +11,11 @@
         <v-flex v-else v-for="(character, index) in characters" :key="character.id">
           <v-layout>
             <v-flex>
-              <v-card width="365px" class="ma-auto" color="#222">
+              <v-card width="365px" class="ma-auto" color="#1d1d1d">
                 <v-img
                   :src="character.imageUrl"
-                  aspect-ratio="1"
-                  position="center top"
+                  aspect-ratio=".72"
+                  position="top center"
                   class="black lighten-2"
                 >
                   <template v-slot:placeholder>
@@ -27,7 +27,7 @@
 
                 <v-card-title primary-title>
                   <v-flex>
-                    <h3 class="text-red subheading">{{ character.classType }}</h3>
+                    <h4 class="char-class">{{ character.classType }}</h4>
                     <h2 class="headline mb-0">{{ character.name }}</h2>
                   </v-flex>
                 </v-card-title>
@@ -36,13 +36,16 @@
                   <div class="text-xs-center">
                     <v-dialog v-model="dialog" max-width="900">
                       <template v-slot:activator="{ on }">
-                        <v-btn flat color="#d70926" v-on="on">View</v-btn>
+                        <v-btn flat color="#158775" v-on="on">View</v-btn>
                       </template>
-                      <RestCharDetails :character="character" />
-
+                      <RestCharDetails :character="character"/>
                     </v-dialog>
                   </div>
-                  <v-btn flat color="#d70926" @click.prevent="deleteCharacter(index, character._id)">Delete</v-btn>
+                  <v-btn
+                    flat
+                    color="#af4343"
+                    @click.prevent="deleteCharacter(index, character._id)"
+                  >Delete</v-btn>
                 </v-card-actions>
               </v-card>
             </v-flex>
@@ -85,11 +88,9 @@ export default {
   },
   methods: {
     deleteCharacter(i, id) {
-              // console.log(`Deleted Character: ${i}`)
-
       let uri = `http://localhost:4402/characters/${id}/delete`;
       this.axios.delete(uri).then(response => {
-        console.log(`Deleted Character: ${i}`)
+        console.log(`Deleted Character: ${i}`);
         this.characters.splice(i, 1);
       });
     }
@@ -98,8 +99,22 @@ export default {
 </script>
 
 <style>
+.char-button {
+  color: #158775;
+}
+.char-class {
+  color: #b4b4b4;
+}
+.text-header {
+  color: #af4343;
+}
+.char-name {
+  color: #edcd95;
+}
+
 .v-content__wrap {
-  background: #111;
+  /* background: rgb(31, 30, 30); */
+  background: #1d1717;
   color: #cecbcb;
 }
 
