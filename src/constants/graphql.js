@@ -12,6 +12,20 @@ export const ALL_CHARACTERS_QUERY = gql`
     }
   }
 `
+
+export const ALL_CHARACTERS_ASC_QUERY = gql`
+  query AllCharactersQuery {
+    characters(orderBy: name_ASC) {
+        id
+        name
+        charClass
+        imageUrl
+        poster
+        description
+      }
+  }
+`
+
 export const CHARACTER_QUERY = gql`
   query CharacterQuery(
     $id: ID!

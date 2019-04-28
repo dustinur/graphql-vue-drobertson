@@ -18,10 +18,11 @@
         <h3 class="char-name">{{ character.charClass }}</h3>
         <h1>{{ character.name }}</h1>
         <p class="char-class">{{ character.description }}</p>
+          <v-btn fllat to="/">Return</v-btn>
       </v-flex>
 
       <v-flex xs12 sm6 offset-sm3 offset-md1 offset-lg3 xl6 pt-4>
-        <form>
+        <!-- <form>
           <v-text-field
             v-model="name"
             :error-messages="nameErrors"
@@ -35,8 +36,7 @@
 
           <v-btn color="#158775" @click="updateCharacter()">submit</v-btn>
           <v-btn @click="clear">clear</v-btn>
-          <v-btn color="#af4343" to="/">cancel</v-btn>
-        </form>
+        </form> -->
       </v-flex>
     </v-layout>
   </v-container>

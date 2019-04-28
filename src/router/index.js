@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import WitcherList from "../components/WitcherList";
+import WitcherListASC from "../components/WitcherListASC";
 import RestWitcherList from "../components/RestWitcherList";
 import CreateChar from "../components/CreateChar";
 import RestCreateChar from "../components/RestCreateChar";
@@ -16,6 +17,11 @@ export default new Router({
       path: "/",
       name: "Home",
       component: WitcherList
+    },
+    {
+      path: "/name-asc",
+      name: "NameASC",
+      component: WitcherListASC
     },
     {
       path: "/restlist",
@@ -35,7 +41,7 @@ export default new Router({
     {
       path: "/rest-update/:id",
       name: "RestUpdate",
-      component: RestUpdateChar,
+      component: RestUpdateChar
     },
     {
       path: "/update/:id",

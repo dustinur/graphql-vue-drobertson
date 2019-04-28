@@ -11,13 +11,22 @@
         <span>The</span>
         <span class="text-header">W</span>
         <span>itcher</span>
-        <span class="font-weight-light char-class">Character<span class="">DB</span></span>
+        <span class="font-weight-light char-class">
+          Character
+          <span class>DB</span>
+        </span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="link in links" :key="link.icon" :to="link.where" flat class=" text-uppercase font-weight-medium">
+        <v-btn
+          v-for="link in links"
+          :key="link.icon"
+          :to="link.where"
+          flat
+          class="text-uppercase font-weight-medium"
+        >
           {{
           link.title
           }}
@@ -29,7 +38,9 @@
         <v-list id="mobile-menu" two-line>
           <v-list-tile color="#fff" v-for="link in links" :key="link.icon" :to="link.where">
             <v-list-tile-content>
-              <v-list-tile-title class="subheading text-uppercase font-weight-medium">{{ link.title }}</v-list-tile-title>
+              <v-list-tile-title
+                class="subheading text-uppercase font-weight-medium"
+              >{{ link.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -54,6 +65,7 @@ export default {
     return {
       links: [
         { title: "GQL Characters", where: "/", icon: "home" },
+        { title: "GQL Alphabetical", where: "/name-asc", icon: "abc" },
         { title: "GQL Create", where: "/create", icon: "info" },
         { title: "Rest Characters", where: "/restlist", icon: "warning" },
         { title: "Rest Create", where: "/rest-create", icon: "test" }
