@@ -75,7 +75,7 @@ export default {
     };
   },
   created() {
-    let uri = "http://localhost:4402/characters";
+    let uri = "https://restful4790-drobertson.herokuapp.com/characters";
     this.axios
       .get(uri)
       .then(response => {
@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     deleteCharacter(i, id) {
-      let uri = `http://localhost:4402/characters/${id}/delete`;
+      let uri = `https://restful4790-drobertson.herokuapp.com/characters/${id}/delete`;
       this.axios.delete(uri).then(response => {
         console.log(`Deleted Character: ${i}`);
         this.characters.splice(i, 1);
@@ -100,25 +100,11 @@ export default {
 </script>
 
 <style>
-.char-button {
-  color: #158775;
-}
-.char-class {
-  color: #b4b4b4;
-}
-.text-header {
-  color: #af4343;
-}
-.char-name {
-  color: #edcd95;
-}
-
 .v-content__wrap {
   /* background: rgb(31, 30, 30); */
   background: #1d1717;
   color: #cecbcb;
 }
-
 .v-dialog {
   background: rgba(10, 10, 10, 0.9);
   border-radius: 10px;

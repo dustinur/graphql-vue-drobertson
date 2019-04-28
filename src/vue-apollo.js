@@ -9,7 +9,7 @@ Vue.use(VueApollo)
 const AUTH_TOKEN = 'apollo-token'
 
 // Http endpoint
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:4000/'
+const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://witcher-heroku-1-fd8bd1d0ae.herokuapp.com/default/default'
 
 // Config
 const defaultOptions = {
@@ -17,7 +17,8 @@ const defaultOptions = {
   httpEndpoint,
   // You can use `wss` for secure connection (recommended in production)
   // Use `null` to disable subscriptions
-  wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || 'ws://localhost:4000/',
+  wsEndpoint:
+    process.env.VUE_APP_GRAPHQL_WS || "wss://witcher-heroku-1-fd8bd1d0ae.herokuapp.com/default/default",
   // LocalStorage token
   tokenName: AUTH_TOKEN,
   // Enable Automatic Query persisting with Apollo Engine
@@ -26,7 +27,7 @@ const defaultOptions = {
   // You need to pass a `wsEndpoint` for this to work
   websocketsOnly: false,
   // Is being rendered on the server?
-  ssr: false,
+  ssr: false
 
   // Override default apollo link
   // note: don't override httpLink here, specify httpLink options in the
@@ -44,7 +45,7 @@ const defaultOptions = {
 
   // Client local data (see apollo-link-state)
   // clientState: { resolvers: { ... }, defaults: { ... } }
-}
+};
 
 // Call this in the Vue app file
 export function createProvider (options = {}) {

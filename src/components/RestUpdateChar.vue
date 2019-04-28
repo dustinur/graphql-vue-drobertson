@@ -91,15 +91,16 @@ export default {
       return errors;
     }
   },
+  // https://restful4790-drobertson.herokuapp.com/characters/
   created() {
-    let uri = `http://localhost:4402/characters/${this.$route.params.id}`;
+    let uri = `https://restful4790-drobertson.herokuapp.com/characters/${this.$route.params.id}`;
     this.axios.get(uri).then(response => {
       this.character = response.data;
     });
   },
   methods: {
     updateCharacter() {
-      let uri = `http://localhost:4402/characters/${
+      let uri = `https://restful4790-drobertson.herokuapp.com/characters/${
         this.$route.params.id
       }/update`;
       this.axios.put(uri, this.character).then(() => {
