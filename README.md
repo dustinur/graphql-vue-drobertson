@@ -21,16 +21,16 @@ const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:4400'
 wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || "ws://localhost:4000",
 ```
 
-- Make sure your GraphQl server us up and running before serving up the Vue app.
+Make sure your GraphQl server us up and running before serving up the Vue app.
 
-- In graphql-vue-drobertson root, run:
+In graphql-vue-drobertson root, run:
 
 ```
 npm install
 
 npm run serve
 ```
-- App will be running on specified localhost
+App will be running on specified localhost
 
 
 ### GraphQL CRUD
@@ -149,7 +149,7 @@ export const DELETE_CHARACTER_MUTATION = gql`
 `
 ```
 
-\RESTful CRUD operations found at [github.com/dustinur/restfulCrud-DRobertson](https://github.com/dustinur/restfulCrud-DRobertson). In the app root directory, navigate to `controllers/character.controller.js`
+RESTful CRUD operations found at [github.com/dustinur/restfulCrud-DRobertson](https://github.com/dustinur/restfulCrud-DRobertson). In the app root directory, navigate to `controllers/character.controller.js`
 
 
 ```
