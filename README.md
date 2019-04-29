@@ -11,10 +11,10 @@ This is a Witcher book and game character database with a Vue and Apollo fronten
 
 ## Getting Started
 
-- To access and run graphql server download and install it from here: [github.com/dustinur/graphql-server-practice](https://github.com/dustinur/graphql-server-practice). 
-- Follow instructions in project `README.md`. 
-- Once Docker is up and running, return back to this Vue app directory and go to `/src/vue-apollo.js`. 
-- Replace both heroku endpoints with the localhost Docker server (you should be running on your process.env.PORT || 4000). Example edit to `vue-apollo.js` below:
+To access and run graphql server download and install it from here: [github.com/dustinur/graphql-server-practice](https://github.com/dustinur/graphql-server-practice). 
+Follow instructions in project `README.md`. 
+Once Docker is up and running, return back to this Vue app directory and go to `/src/vue-apollo.js`. 
+Replace both heroku endpoints with the localhost Docker server (you should be running on your process.env.PORT || 4000). Example edit to `vue-apollo.js` below:
 ```
 const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:4400'
 
