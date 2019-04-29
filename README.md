@@ -18,7 +18,7 @@ This is a Witcher book and game character database with a Vue and Apollo fronten
 ```
 const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:4400'
 
-wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || "ws://localhost:4000",
+wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || "ws://localhost:4400",
 ```
 
 Make sure your GraphQl server us up and running before serving up the Vue app.
