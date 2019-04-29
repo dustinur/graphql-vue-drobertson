@@ -1,8 +1,7 @@
 <template>
   <v-container grid-list-md>
     <h1 class="headline text-uppercase font-weight-black text-xs-center">
-      GQL
-      <span class="headline font-weight-light text-xs-center">Create</span>
+      GQL<span class="headline font-weight-light text-xs-center">Create</span>
     </h1>
     <v-layout row wrap>
       <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg5 offset-lg0 pa-4>
@@ -121,14 +120,14 @@ export default {
             poster,
             description
           },
-          //   update: (store, { data: { createCharacter } }) => {
-          //     const data = store.readQuery({
-          //       // query: ALL_CHARACTERS_QUERY,
-          //       query: ALL_CHARACTERS_ASC_QUERY
-          //     });
-          //     data.characters.push(createCharacter);
-          //     store.writeQuery({ query: ALL_CHARACTERS_QUERY, query: ALL_CHARACTERS_ASC_QUERY, data });
-          //   }
+            // update: (store, { data: { createCharacter } }) => {
+            //   const data = store.readQuery({
+            //     query: ALL_CHARACTERS_QUERY,
+            //     query: ALL_CHARACTERS_ASC_QUERY
+            //   });
+            //   data.characters.push(createCharacter);
+            //   store.writeQuery({ query: ALL_CHARACTERS_QUERY, query: ALL_CHARACTERS_ASC_QUERY, data });
+            // }
           // })
           refetchQueries: [
             {
@@ -143,16 +142,17 @@ export default {
                 characters: []
               }
             }
-          ],
+          ]
           // optimisticResponse: {
           //   __typename: "Mutation",
           //   createCharacter: {
           //     __typename: "Character",
-          //     id: this.character.id
+          //     id: -1
           //   }
           // }
         })
         .then(data => {
+          console.log(data.data.createCharacter.id)
           this.$router.push({ path: "/" });
         })
         .catch(error => {

@@ -34,12 +34,12 @@
 
                 <v-card-actions class="justify-space-between pl-1 pr-1 pt-0 pb-3">
                   <div class="text-xs-center">
-                    <v-dialog v-model="dialog" max-width="900">
+                    <!-- <v-dialog v-model="dialog" max-width="900">
                       <template v-slot:activator="{ on }">
                         <v-btn class="font-weight-black" flat color="#158775" v-on="on">View</v-btn>
-                      </template>
+                      </template> -->
                       <RestCharDetails :character="character"/>
-                    </v-dialog>
+                    <!-- </v-dialog> -->
                   </div>
                   <v-btn
                     class="font-weight-black"

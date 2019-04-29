@@ -80,14 +80,14 @@ export default {
               charClass: this.character.charClass
             }
           },
-          refetchQueries: [
-            {
-              query: ALL_CHARACTERS_QUERY,
-              variables: {
-                characters: []
-              }
-            }
-          ],
+          // refetchQueries: [
+          //   {
+          //     query: ALL_CHARACTERS_QUERY,
+          //     variables: {
+          //       characters: []
+          //     }
+          //   }
+          // ],
           optimisticResponse: {
             __typename: "Mutation",
             updateCharacter: {

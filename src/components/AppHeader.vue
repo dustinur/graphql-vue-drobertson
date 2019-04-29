@@ -10,10 +10,7 @@
       <v-toolbar-title class="headline text-uppercase font-weight-black">
         <span>The</span>
         <span class="text-header">W</span>
-        <span>itcher</span>
-        <span class="font-weight-light char-class">
-          Character
-          <span class>DB</span>
+        <span>itcher</span><span class="font-weight-light char-class">Character<span class>DB</span>
         </span>
       </v-toolbar-title>
 
