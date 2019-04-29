@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1 class="headline text-uppercase font-weight-black text-xs-left pb-2">
-      GQL<span class="headline font-weight-light text-xs-center">Update</span>
+      GQL
+      <span class="headline font-weight-light text-xs-center">Update</span>
     </h1>
     <form>
       <v-text-field
@@ -25,6 +26,7 @@
 
       <v-btn class="font-weight-black" flat color="#158775" @click="updateCharacter()">submit</v-btn>
       <v-btn class="font-weight-black" flat @click="clear">clear</v-btn>
+      <v-btn class="font-weight-black" flat color="#af4343" @click="cancel()">cancel</v-btn>
     </form>
   </div>
 </template>
@@ -62,6 +64,11 @@ export default {
   },
 
   methods: {
+    cancel() {
+      console.log("toggle edit");
+      // this.editForm = false;
+      this.$emit("toggleEdit");
+    },
     updateCharacter() {
       this.$apollo
         .mutate({
@@ -91,7 +98,7 @@ export default {
         })
         .then(data => {
           console.log(data);
-          this.$router.push({ path: "/" });
+          // this.$router.push({ path: "/" });
         })
         .catch(error => {
           console.error(error);

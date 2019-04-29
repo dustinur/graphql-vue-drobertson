@@ -18,7 +18,7 @@
 
 <script>
 /* eslint-disable no-console */
-import { ALL_CHARACTERS_ASC_QUERY } from "../constants/graphql";
+import {  ALL_CHARACTERS_QUERY, ALL_CHARACTERS_ASC_QUERY } from "../constants/graphql";
 import CharCard from "./CharCard.vue";
 
 export default {

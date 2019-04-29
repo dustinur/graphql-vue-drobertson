@@ -65,7 +65,7 @@ export default {
     return {
       links: [
         { title: "GQL Characters", where: "/", icon: "home" },
-        { title: "GQL Alphabetical", where: "/name-asc", icon: "abc" },
+        { title: "GQL Characters ASC", where: "/name-asc", icon: "abc" },
         { title: "GQL Create", where: "/create", icon: "info" },
         { title: "Rest Characters", where: "/restlist", icon: "warning" },
         { title: "Rest Create", where: "/rest-create", icon: "test" }
@@ -79,8 +79,10 @@ export default {
 #mobile-menu {
   background: #111;
 }
-.char-button {
-  color: #158775;
+.char-button,
+.primary--text {
+  color: #158775 !important;
+  caret-color: #158775 !important;
 }
 .char-class {
   color: #b4b4b4;

@@ -11,7 +11,7 @@
         <v-flex v-else v-for="(character, index) in characters" :key="character.id">
           <v-layout>
             <v-flex>
-              <v-card width="365px" class="ma-auto" color="#1d1d1d">
+              <v-card width="365px" class="ma-auto" color="rgb(28, 28, 28)">
                 <v-img
                   :src="character.imageUrl"
                   :aspect-ratio="9/16"

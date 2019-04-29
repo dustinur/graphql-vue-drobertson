@@ -1,7 +1,8 @@
 <template>
   <v-container grid-list-md>
     <h1 class="headline text-uppercase font-weight-black text-xs-center">
-      GQL<span class="headline font-weight-light text-xs-center">Create</span>
+      GQL
+      <span class="headline font-weight-light text-xs-center">Create</span>
     </h1>
     <v-layout row wrap>
       <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg5 offset-lg0 pa-4>
@@ -76,6 +77,7 @@ import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
 import {
   ALL_CHARACTERS_QUERY,
+  ALL_CHARACTERS_ASC_QUERY,
   CREATE_CHARACTER_MUTATION
 } from "../constants/graphql";
 
@@ -119,13 +121,36 @@ export default {
             poster,
             description
           },
-          update: (store, { data: { createCharacter } }) => {
-            const data = store.readQuery({
-              query: ALL_CHARACTERS_QUERY
-            });
-            data.characters.push(createCharacter);
-            store.writeQuery({ query: ALL_CHARACTERS_QUERY, data });
-          }
+          //   update: (store, { data: { createCharacter } }) => {
+          //     const data = store.readQuery({
+          //       // query: ALL_CHARACTERS_QUERY,
+          //       query: ALL_CHARACTERS_ASC_QUERY
+          //     });
+          //     data.characters.push(createCharacter);
+          //     store.writeQuery({ query: ALL_CHARACTERS_QUERY, query: ALL_CHARACTERS_ASC_QUERY, data });
+          //   }
+          // })
+          refetchQueries: [
+            {
+              query: ALL_CHARACTERS_QUERY,
+              variables: {
+                characters: []
+              }
+            },
+            {
+              query: ALL_CHARACTERS_ASC_QUERY,
+              variables: {
+                characters: []
+              }
+            }
+          ],
+          // optimisticResponse: {
+          //   __typename: "Mutation",
+          //   createCharacter: {
+          //     __typename: "Character",
+          //     id: this.character.id
+          //   }
+          // }
         })
         .then(data => {
           this.$router.push({ path: "/" });

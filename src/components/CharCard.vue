@@ -1,7 +1,8 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card width="365px" class="ma-auto" color="#1d1d1d">
+      <!-- <v-card width="365px" class="ma-auto" color="#1d1d1d"> -->
+        <v-card width="365px" class="ma-auto" color="rgb(28, 28, 28)">
         <v-img
           :src="character.poster"
           :aspect-ratio="9/16"
@@ -17,8 +18,7 @@
 
         <v-card-title primary-title class="pb-0">
           <v-flex>
-            <h4 class="char-class font-weight-light
-            ">{{ character.charClass }}</h4>
+            <h4 class="char-class font-weight-light">{{ character.charClass }}</h4>
             <h2 class="headline font-weight-medium mb-0">{{ character.name }}</h2>
           </v-flex>
         </v-card-title>
@@ -44,6 +44,7 @@
 import CharDetails from "./CharDetails.vue";
 import {
   ALL_CHARACTERS_QUERY,
+  ALL_CHARACTERS_ASC_QUERY,
   DELETE_CHARACTER_MUTATION
 } from "../constants/graphql";
 
@@ -75,6 +76,12 @@ export default {
               variables: {
                 characters: []
               }
+            },
+            {
+              query: ALL_CHARACTERS_ASC_QUERY,
+              variables: {
+                characters: []
+              }
             }
           ],
           optimisticResponse: {
@@ -86,8 +93,7 @@ export default {
           }
         })
         .then(data => {
-          console.log(data);
-          this.$router.push({ path: "/" });
+          console.log(`Deleted ${this.character.id}`);
         })
         .catch(error => {
           console.error(error);
