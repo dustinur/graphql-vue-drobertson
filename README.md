@@ -5,7 +5,7 @@ Final project for Utah Valley University course DGM4790 to demonstrate ability t
 This is a Witcher book and game character database with a Vue and Apollo frontend using Prisma data modeling tool with PostgreSQL data store. AXIOS is also used to interact with a RESTful API using Node.js, Express and MongoDB Atlas.
 
 ## Overview
-- Netlify URL for deplyed site: [drobertson4790.netlify.com](https://drobertson4790.netlify.com/). Heroku is hosting both the Prisma Cloud deployed PostgresSQL data store and RESTful API.
+- Netlify URL for deplyed site: [drobertson4790.netlify.com](https://drobertson4790.netlify.com/). Heroku is hosting both the Prisma Cloud deployed Prisma server and PostgresSQL data store as well as the RESTful API using MongoDB Atlas.
 - REST API: [github.com/dustinur/restfulCrud-DRobertson](https://github.com/dustinur/restfulCrud-DRobertson).
 - GraphQL API: [github.com/dustinur/graphql-server-practice](https://github.com/dustinur/graphql-server-practice).
 
