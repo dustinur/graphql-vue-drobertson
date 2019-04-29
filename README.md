@@ -33,7 +33,7 @@ npm run serve
 App will be running on specified localhost
 
 
-### GraphQL CRUD
+## CRUD
 
 All GraphQL and REST CRUD operations can be perfomed within each of the character cards. 'Order by Name ASC' query and the 'createCharacter' mutations are found in the toolbar. GraphQL queries and mutations found at `/src/constants/graphql.js`:
 ```
