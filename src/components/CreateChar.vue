@@ -152,7 +152,7 @@ export default {
           // }
         })
         .then(data => {
-          console.log(data.data.createCharacter.id)
+          console.log(`Created ${data.data.createCharacter.id}`)
           this.$router.push({ path: "/" });
         })
         .catch(error => {

@@ -59,7 +59,6 @@
 
 <script>
 /* eslint-disable no-console */
-import axios from "axios";
 import RestCharDetails from "./RestCharDetails";
 
 export default {
@@ -91,7 +90,7 @@ export default {
     deleteCharacter(i, id) {
       let uri = `https://restful4790-drobertson.herokuapp.com/characters/${id}/delete`;
       this.axios.delete(uri).then(response => {
-        console.log(`Deleted Character: ${i}`);
+        console.log(`At index ${i}: ${response.data}`);
         this.characters.splice(i, 1);
       });
     }

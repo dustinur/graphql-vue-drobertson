@@ -32,10 +32,12 @@
 </template>
 
 <script>
+/* eslint-disable no-console */
+
 import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
 import {
-  ALL_CHARACTERS_QUERY,
+  // ALL_CHARACTERS_QUERY,
   UPDATE_CHARACTER_TWO
 } from "../constants/graphql";
 
@@ -66,7 +68,6 @@ export default {
   methods: {
     cancel() {
       console.log("toggle edit");
-      // this.editForm = false;
       this.$emit("toggleEdit");
     },
     updateCharacter() {
@@ -97,7 +98,7 @@ export default {
           }
         })
         .then(data => {
-          console.log(data);
+          console.log(`Updated ${data} ${this.character.id}`)
           // this.$router.push({ path: "/" });
         })
         .catch(error => {
